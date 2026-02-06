@@ -9,7 +9,8 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
 import Disclaimer from './pages/Disclaimer';
 import ShippingInfo from './pages/ShippingInfo';
-import ReturnPolicy from './pages/ReturnPolicy'; // Import new pages
+import ReturnPolicy from './pages/ReturnPolicy';
+import Sitemap from './pages/Sitemap';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -38,6 +39,7 @@ function App() {
           <Route path="/disclaimer" element={<Disclaimer />} />
           <Route path="/shipping-info" element={<ShippingInfo />} />
           <Route path="/return-policy" element={<ReturnPolicy />} />
+          <Route path="/sitemap" element={<Sitemap />} />
         </Routes>
       </Layout>
     </Router>
