@@ -4,43 +4,50 @@ import { motion } from 'framer-motion';
 import ProductCard from '../components/ProductCard';
 
 
+import tensImage from '../assets/tens-therapy-unit.jpg';
+import ultrasoundImage from '../assets/ultrasound-therapy-device.jpg';
+import exerciseImage from '../assets/exercise-therapy-bands.jpg';
+import tractionImage from '../assets/digital-traction-machine.jpg';
+import infraredImage from '../assets/infrared-therapy-lamp.jpg';
+import wobbleImage from '../assets/wobble-board.jpg';
+
 const Home = () => {
   const featuredProducts = [
     {
       id: 1,
       name: "TENS Therapy Unit",
       description: "Advanced digital TENS machine for pain management.",
-      image: null
+      image: tensImage
     },
     {
       id: 2,
       name: "Ultrasound Therapy",
       description: "Professional grade ultrasound device for deep tissue.",
-      image: null
+      image: ultrasoundImage
     },
     {
       id: 3,
       name: "Exercise Bands",
       description: "High-quality resistance bands for rehabilitation.",
-      image: null
+      image: exerciseImage
     },
     {
       id: 4,
       name: "Digital Traction",
       description: "Precise traction therapy for spinal decompression.",
-      image: null
+      image: tractionImage
     },
     {
       id: 5,
       name: "Infrared Lamp",
       description: "Therapeutic heating for muscle relaxation.",
-      image: null
+      image: infraredImage
     },
     {
       id: 6,
       name: "Wobble Board",
       description: "Balance training aimed at ankle stability.",
-      image: null
+      image: wobbleImage
     }
   ];
 
