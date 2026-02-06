@@ -21,31 +21,23 @@ const About = () => {
       {/* Company Info Section */}
       <section className="section">
         <div className="container">
-          <div className="about-grid">
-            <div className="about-image">
-              <div className="placeholder-image">About Us Image</div>
-            </div>
-            <div className="about-text">
-              <h2>Company Overview</h2>
-              <p>
-                PhysioCare BD is a trusted name in the healthcare industry of Bangladesh, specializing in
-                high-quality physiotherapy and rehabilitation equipment. We bridge the gap between advanced
-                medical technology and local healthcare needs.
-              </p>
-
-              <h2>What We Do</h2>
-              <p>
-                We supply a comprehensive range of medical equipment to hospitals, specialized clinics,
-                and individual patients. From TENS machines to advanced ultrasound therapy units,
-                we ensure every product aids in effective recovery.
-              </p>
-
-              <h2>Our Commitment</h2>
-              <p>
-                Quality is at the heart of everything we do. We serve with integrity, ensuring that
-                every device we supply is safe, durable, and effective.
-              </p>
-            </div>
+          <div className="about-text-container">
+            <p>
+              PhysioCare BD is a trusted name in the healthcare industry of Bangladesh, specializing in
+              high-quality physiotherapy and rehabilitation equipment. We bridge the gap between advanced
+              medical technology and local healthcare needs, ensuring that clinics and patients have access
+              to the best tools for recovery.
+            </p>
+            <p>
+              We supply a comprehensive range of medical equipment to hospitals, specialized clinics,
+              and individual patients. From TENS machines to advanced ultrasound therapy units,
+              we ensure every product aids in effective recovery and improves the quality of life for our users.
+            </p>
+            <p>
+              Quality is at the heart of everything we do. We serve with integrity, ensuring that
+              every device we supply is safe, durable, and effective. Our commitment extends beyond sales,
+              as we strive to be a reliable partner in the journey towards better health and mobility.
+            </p>
           </div>
         </div>
       </section>
@@ -132,36 +124,19 @@ const About = () => {
                 }
 
                 /* Company Info */
-                .about-grid {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    gap: 4rem;
-                    align-items: center;
+                .about-text-container {
+                    max-width: 900px;
+                    margin: 0 auto;
+                    text-align: center;
                 }
-                .about-text h2 {
-                    color: var(--primary);
-                    font-size: 1.5rem;
-                    margin-bottom: 0.75rem;
-                    margin-top: 1.5rem;
-                }
-                .about-text h2:first-child {
-                    margin-top: 0;
-                }
-                .about-text p {
+                .about-text-container p {
                     color: var(--text-light);
-                    line-height: 1.6;
-                    margin-bottom: 1rem;
+                    line-height: 1.8;
+                    margin-bottom: 2rem;
+                    font-size: 1.1rem;
                 }
-                .placeholder-image {
-                    width: 100%;
-                    height: 400px;
-                    background: #cbd5e1;
-                    border-radius: var(--radius);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: #64748b;
-                    font-weight: 600;
+                .about-text-container p:last-child {
+                    margin-bottom: 0;
                 }
 
                 /* CEO Section */
@@ -272,12 +247,7 @@ const About = () => {
                 }
 
                 @media (max-width: 768px) {
-                    .about-grid {
-                        grid-template-columns: 1fr;
-                    }
-                    .about-image {
-                        order: -1;
-                    }
+
                     .ceo-container {
                         grid-template-columns: 1fr;
                         text-align: center;
