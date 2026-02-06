@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
+import ceoImage from '../assets/Kamruzzaman-Sumon.png';
 
 const About = () => {
   const teamMembers = [
-    { name: "Md. Jahid Hasan", role: "CEO & Founder", image: null },
+    { name: "Md. Kamruzzaman Sumon", role: "CEO & Founder", image: null },
     { name: "Sarah Ahmed", role: "Head of Operations", image: null },
     { name: "Rahim Uddin", role: "Senior Technician", image: null },
     { name: "Fatima Begum", role: "Sales Manager", image: null },
@@ -52,8 +53,8 @@ const About = () => {
             viewport={{ once: true }}
           >
             <div className="ceo-image-wrapper">
-              <div className="ceo-placeholder">
-                <span>CEO Photo</span>
+              <div className="ceo-image-container">
+                <img src={ceoImage} alt="Md. Kamruzzaman Sumon" />
               </div>
             </div>
             <div className="ceo-content">
@@ -65,7 +66,7 @@ const About = () => {
                 growth of physiotherapy in Bangladesh by providing reliable, affordable, and world-class technology."
               </p>
               <div className="ceo-signature">
-                <h3>Md. Jahid Hasan</h3>
+                <h3>Md. Kamruzzaman Sumon</h3>
                 <p>Founder & CEO, PhysioCare BD</p>
               </div>
             </div>
@@ -156,17 +157,24 @@ const About = () => {
                 .ceo-image-wrapper {
                     text-align: center;
                 }
-                .ceo-placeholder {
-                    width: 250px;
-                    height: 250px;
-                    background: #e2e8f0;
+                .ceo-image-container {
+                    width: 280px;
+                    height: 280px;
+                    background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); /* Light Blue Gradient */
                     border-radius: 50%;
                     margin: 0 auto;
                     overflow: hidden;
                     display: flex;
-                    align-items: center;
+                    align-items: flex-end; /* Align image to bottom if transparent */
                     justify-content: center;
-                    color: #94a3b8;
+                    border: 4px solid var(--white);
+                    box-shadow: var(--shadow-md);
+                }
+                .ceo-image-container img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain; /* OR cover, depending on image aspect ratio */
+                    object-position: top center;
                 }
                 .quote-icon {
                     color: var(--primary);
