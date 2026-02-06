@@ -35,7 +35,7 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <Link to="/contact" className="btn btn-primary btn-sm">Get Quote</Link>
+          <a href="https://wa.me/8801711238555" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">Get Quote</a>
         </div>
 
         {/* Mobile Toggle */}
@@ -173,7 +173,7 @@ const Footer = () => {
           <h4>Contact Info</h4>
           <ul className="footer-contact">
             <li><Mail size={16} /> <a href="mailto:sales@physiocarebdplus.com" className="contact-link">sales@physiocarebdplus.com</a></li>
-            <li><Phone size={16} /> +880 1700 000000</li>
+            <li><Phone size={16} /> +8801711238555</li>
             <li><MapPin size={16} /> Dhaka, Bangladesh</li>
           </ul>
           <div className="social-links">

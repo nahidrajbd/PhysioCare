@@ -24,9 +24,9 @@ const ProductCard = ({ product, hideAction }) => {
         <h3 className="card-title">{product.name}</h3>
         <p className="card-desc">{product.description}</p>
         {!hideAction && (
-          <Link to="/contact" className="card-link">
+          <a href="https://wa.me/8801711238555" target="_blank" rel="noopener noreferrer" className="card-link">
             Inquire Now <ArrowRight size={16} />
-          </Link>
+          </a>
         )}
       </div>
 

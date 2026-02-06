@@ -73,9 +73,9 @@ const Home = () => {
               <Link to="/products" className="btn btn-primary">
                 Explore Products
               </Link>
-              <Link to="/contact" className="btn btn-outline">
+              <a href="https://wa.me/8801711238555" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
                 Contact Us
-              </Link>
+              </a>
             </div>
           </motion.div>
           <motion.div
@@ -174,7 +174,7 @@ const Home = () => {
         <div className="container cta-container">
           <h2>Ready to Upgrade Your Clinic?</h2>
           <p>Get the best physiotherapy equipment in Bangladesh. Contact us today for a quote.</p>
-          <Link to="/contact" className="btn btn-white">Contact Sales</Link>
+          <a href="https://wa.me/8801711238555" target="_blank" rel="noopener noreferrer" className="btn btn-white">Contact Sales</a>
         </div>
       </section>
 
@@ -241,8 +241,8 @@ const Home = () => {
         .feature-icon {
           width: 64px;
           height: 64px;
-          background: var(--accent);
-          color: var(--primary);
+          background: var(--primary);
+          color: var(--white);
           border-radius: 50%;
           display: flex;
           align-items: center;

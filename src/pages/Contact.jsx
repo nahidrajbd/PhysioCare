@@ -42,7 +42,7 @@ const Contact = () => {
               <div className="icon-box"><Phone /></div>
               <div>
                 <h3>Phone</h3>
-                <p>+880 1700 000000</p>
+                <p>+8801711238555</p>
               </div>
             </div>
 
