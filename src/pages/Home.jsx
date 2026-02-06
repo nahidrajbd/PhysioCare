@@ -77,7 +77,7 @@ const Home = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="image-placeholder-gradient"></div>
+            <img src="/banner.png" alt="Physiotherapy Equipment Banner" className="hero-banner-image" />
           </motion.div>
         </div>
       </section>
@@ -203,13 +203,11 @@ const Home = () => {
           display: flex;
           gap: 1rem;
         }
-        .image-placeholder-gradient {
+        .hero-banner-image {
           width: 100%;
-          height: 400px;
-          background: linear-gradient(135deg, var(--primary) 0%, #2dd4bf 100%);
+          height: auto;
           border-radius: 2rem;
           box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-          opacity: 0.9;
         }
         
         .bg-light {
