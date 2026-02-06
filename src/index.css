@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary: #0d9488;
-  --primary-dark: #0f766e;
-  --primary-light: #ccfbf1;
-  --secondary: #64748b;
-  --accent: #f0fdfa;
-  --text-dark: #1e293b;
-  --text-light: #64748b;
+  --primary: #60b3e5;
+  --primary-dark: #4da3d4;
+  --primary-light: #e0f6ff;
+  --secondary: #264652;
+  --accent: #b3d864;
+  --text-dark: #264652;
+  --text-light: #54707c;
   --white: #ffffff;
-  --bg-light: #f8fafc;
-  --success: #10b981;
+  --bg-light: #f4faff;
+  --success: #b3d864;
   
   --font-main: 'Inter', sans-serif;
   
@@ -99,7 +99,7 @@ button {
 
 .section-subtitle {
   text-align: center;
-  color: var(--secondary);
+  color: var(--text-light);
   max-width: 600px;
   margin: 0 auto 3rem;
   font-size: 1.1rem;

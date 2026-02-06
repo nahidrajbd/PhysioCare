@@ -172,10 +172,10 @@ const Products = () => {
         }
         .catalog-note {
           text-align: center;
-          background: #f0fdfa;
+          background: var(--primary-light);
           padding: 3rem;
           border-radius: var(--radius);
-          border: 1px solid #ccfbf1;
+          border: 1px solid var(--primary-light);
         }
         .catalog-note p {
           font-size: 1.5rem;

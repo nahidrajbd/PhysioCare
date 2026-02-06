@@ -2,102 +2,102 @@ import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Contact = () => {
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        alert("Thank you for your message! We will get back to you soon.");
-    };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Thank you for your message! We will get back to you soon.");
+  };
 
-    return (
-        <div className="contact-page">
-            <div className="page-header">
-                <div className="container">
-                    <h1>Contact Us</h1>
-                    <p>Get in touch for quotes and inquiries</p>
-                </div>
+  return (
+    <div className="contact-page">
+      <div className="page-header">
+        <div className="container">
+          <h1>Contact Us</h1>
+          <p>Get in touch for quotes and inquiries</p>
+        </div>
+      </div>
+
+      <section className="section">
+        <div className="container contact-container">
+          <motion.div
+            className="contact-info"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <h2>Get in Touch</h2>
+            <p className="contact-text">
+              Have questions about our products or need a price quote?
+              Fill out the form or reach us directly.
+            </p>
+
+            <div className="info-item">
+              <div className="icon-box"><Mail /></div>
+              <div>
+                <h3>Email</h3>
+                <p>sales@physiocarebdplus.com</p>
+              </div>
             </div>
 
-            <section className="section">
-                <div className="container contact-container">
-                    <motion.div
-                        className="contact-info"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.2 }}
-                    >
-                        <h2>Get in Touch</h2>
-                        <p className="contact-text">
-                            Have questions about our products or need a price quote?
-                            Fill out the form or reach us directly.
-                        </p>
+            <div className="info-item">
+              <div className="icon-box"><Phone /></div>
+              <div>
+                <h3>Phone</h3>
+                <p>+880 1700 000000</p>
+              </div>
+            </div>
 
-                        <div className="info-item">
-                            <div className="icon-box"><Mail /></div>
-                            <div>
-                                <h3>Email</h3>
-                                <p>sales@physiocarebdplus.com</p>
-                            </div>
-                        </div>
+            <div className="info-item">
+              <div className="icon-box"><MapPin /></div>
+              <div>
+                <h3>Office Address</h3>
+                <p>Sector 7, Uttara, Dhaka-1230, Bangladesh</p>
+              </div>
+            </div>
 
-                        <div className="info-item">
-                            <div className="icon-box"><Phone /></div>
-                            <div>
-                                <h3>Phone</h3>
-                                <p>+880 1700 000000</p>
-                            </div>
-                        </div>
+            <div className="working-hours">
+              <h3>Working Hours</h3>
+              <p>Saturday - Thursday: 9:00 AM - 8:00 PM</p>
+              <p>Friday: Closed</p>
+            </div>
+          </motion.div>
 
-                        <div className="info-item">
-                            <div className="icon-box"><MapPin /></div>
-                            <div>
-                                <h3>Office Address</h3>
-                                <p>Sector 7, Uttara, Dhaka-1230, Bangladesh</p>
-                            </div>
-                        </div>
+          <motion.div
+            className="contact-form-wrapper"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <form onSubmit={handleSubmit} className="contact-form">
+              <h3>Send us a Message</h3>
+              <div className="form-group">
+                <label>Your Name</label>
+                <input type="text" placeholder="Enter your full name" required />
+              </div>
 
-                        <div className="working-hours">
-                            <h3>Working Hours</h3>
-                            <p>Saturday - Thursday: 9:00 AM - 8:00 PM</p>
-                            <p>Friday: Closed</p>
-                        </div>
-                    </motion.div>
+              <div className="form-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="Enter your email" required />
+              </div>
 
-                    <motion.div
-                        className="contact-form-wrapper"
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.2 }}
-                    >
-                        <form onSubmit={handleSubmit} className="contact-form">
-                            <h3>Send us a Message</h3>
-                            <div className="form-group">
-                                <label>Your Name</label>
-                                <input type="text" placeholder="Enter your full name" required />
-                            </div>
+              <div className="form-group">
+                <label>Phone Number</label>
+                <input type="tel" placeholder="Enter your phone number" />
+              </div>
 
-                            <div className="form-group">
-                                <label>Email Address</label>
-                                <input type="email" placeholder="Enter your email" required />
-                            </div>
+              <div className="form-group">
+                <label>Message</label>
+                <textarea rows="5" placeholder="Which product are you interested in?" required></textarea>
+              </div>
 
-                            <div className="form-group">
-                                <label>Phone Number</label>
-                                <input type="tel" placeholder="Enter your phone number" />
-                            </div>
+              <button type="submit" className="btn btn-primary w-full">
+                Send Message <Send size={18} style={{ marginLeft: '8px' }} />
+              </button>
+            </form>
+          </motion.div>
+        </div>
+      </section>
 
-                            <div className="form-group">
-                                <label>Message</label>
-                                <textarea rows="5" placeholder="Which product are you interested in?" required></textarea>
-                            </div>
-
-                            <button type="submit" className="btn btn-primary w-full">
-                                Send Message <Send size={18} style={{ marginLeft: '8px' }} />
-                            </button>
-                        </form>
-                    </motion.div>
-                </div>
-            </section>
-
-            <style jsx>{`
+      <style jsx>{`
         .page-header {
           background-color: var(--bg-light);
           padding: 4rem 0;
@@ -138,7 +138,7 @@ const Contact = () => {
           width: 50px;
           height: 50px;
           background: var(--accent);
-          color: var(--primary);
+          color: var(--text-dark);
           border-radius: 12px;
           display: flex;
           align-items: center;
@@ -212,8 +212,8 @@ const Contact = () => {
           }
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Contact;
