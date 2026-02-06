@@ -158,6 +158,17 @@ const Footer = () => {
         </div>
 
         <div className="footer-col">
+          <h4>Customer Service</h4>
+          <ul className="footer-links">
+            <li><Link to="/shipping-info">Shipping Information</Link></li>
+            <li><Link to="/return-policy">Return & Refund</Link></li>
+            <li><Link to="/privacy-policy">Privacy Policy</Link></li>
+            <li><Link to="/terms-and-conditions">Terms & Conditions</Link></li>
+            <li><Link to="/disclaimer">Disclaimer</Link></li>
+          </ul>
+        </div>
+
+        <div className="footer-col">
           <h4>Contact Info</h4>
           <ul className="footer-contact">
             <li><Mail size={16} /> <a href="mailto:sales@physiocarebdplus.com" className="contact-link">sales@physiocarebdplus.com</a></li>

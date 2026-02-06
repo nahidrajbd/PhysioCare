@@ -5,6 +5,11 @@ import About from './pages/About';
 import Products from './pages/Products';
 import WhyChooseUs from './pages/WhyChooseUs';
 import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsAndConditions from './pages/TermsAndConditions';
+import Disclaimer from './pages/Disclaimer';
+import ShippingInfo from './pages/ShippingInfo';
+import ReturnPolicy from './pages/ReturnPolicy'; // Import new pages
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -28,6 +33,11 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/why-choose-us" element={<WhyChooseUs />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />
+          <Route path="/shipping-info" element={<ShippingInfo />} />
+          <Route path="/return-policy" element={<ReturnPolicy />} />
         </Routes>
       </Layout>
     </Router>
