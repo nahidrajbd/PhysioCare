@@ -4,70 +4,70 @@ import { Menu, X, Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from 'luc
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
-    const navLinks = [
-        { name: 'Home', path: '/' },
-        { name: 'About Us', path: '/about' },
-        { name: 'Products', path: '/products' },
-        { name: 'Why Choose Us', path: '/why-choose-us' },
-        { name: 'Contact Us', path: '/contact' },
-    ];
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'About Us', path: '/about' },
+    { name: 'Products', path: '/products' },
+    { name: 'Why Choose Us', path: '/why-choose-us' },
+    { name: 'Contact Us', path: '/contact' },
+  ];
 
-    const isActive = (path) => location.pathname === path;
+  const isActive = (path) => location.pathname === path;
 
-    return (
-        <nav className="navbar">
-            <div className="container nav-container">
-                <Link to="/" className="logo">
-                    Physio<span className="text-primary">Care</span> BD
-                </Link>
+  return (
+    <nav className="navbar">
+      <div className="container nav-container">
+        <Link to="/" className="logo">
+          Physio<span className="text-primary">Care</span> BD
+        </Link>
 
-                {/* Desktop Menu */}
-                <div className="nav-links desktop-only">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.path}
-                            to={link.path}
-                            className={`nav-link ${isActive(link.path) ? 'active' : ''}`}
-                        >
-                            {link.name}
-                        </Link>
-                    ))}
-                    <Link to="/contact" className="btn btn-primary btn-sm">Get Quote</Link>
-                </div>
+        {/* Desktop Menu */}
+        <div className="nav-links desktop-only">
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              className={`nav-link ${isActive(link.path) ? 'active' : ''}`}
+            >
+              {link.name}
+            </Link>
+          ))}
+          <Link to="/contact" className="btn btn-primary btn-sm">Get Quote</Link>
+        </div>
 
-                {/* Mobile Toggle */}
-                <button className="mobile-toggle" onClick={() => setIsOpen(!isOpen)}>
-                    {isOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
-            </div>
+        {/* Mobile Toggle */}
+        <button className="mobile-toggle" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
 
-            {/* Mobile Menu */}
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="mobile-menu"
-                    >
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.path}
-                                to={link.path}
-                                className={`mobile-link ${isActive(link.path) ? 'active' : ''}`}
-                                onClick={() => setIsOpen(false)}
-                            >
-                                {link.name}
-                            </Link>
-                        ))}
-                    </motion.div>
-                )}
-            </AnimatePresence>
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="mobile-menu"
+          >
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`mobile-link ${isActive(link.path) ? 'active' : ''}`}
+                onClick={() => setIsOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-            <style jsx>{`
+      <style jsx>{`
         .navbar {
           background: rgba(255, 255, 255, 0.95);
           backdrop-filter: blur(10px);
@@ -132,54 +132,53 @@ const Navbar = () => {
           }
         }
       `}</style>
-        </nav>
-    );
+    </nav>
+  );
 };
 
 const Footer = () => {
-    return (
-        <footer className="footer">
-            <div className="container footer-grid">
-                <div className="footer-col">
-                    <h3 className="footer-logo">Physio<span>Care</span> BD</h3>
-                    <p className="footer-desc">
-                        Trusted supplier of high-quality physiotherapy equipment in Bangladesh.
-                        Dedicated to improving patient care with reliable medical technology.
-                    </p>
-                </div>
+  return (
+    <footer className="footer">
+      <div className="container footer-grid">
+        <div className="footer-col">
+          <h3 className="footer-logo">Physio<span>Care</span> BD</h3>
+          <p className="footer-desc">
+            Reliable physiotherapy equipment supplier in Bangladesh.
+          </p>
+        </div>
 
-                <div className="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul className="footer-links">
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/about">About Us</Link></li>
-                        <li><Link to="/products">Products</Link></li>
-                        <li><Link to="/contact">Contact</Link></li>
-                    </ul>
-                </div>
+        <div className="footer-col">
+          <h4>Quick Links</h4>
+          <ul className="footer-links">
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About Us</Link></li>
+            <li><Link to="/products">Products</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
+          </ul>
+        </div>
 
-                <div className="footer-col">
-                    <h4>Contact Info</h4>
-                    <ul className="footer-contact">
-                        <li><Mail size={16} /> sales@physiocarebdplus.com</li>
-                        <li><Phone size={16} /> +880 1700 000000</li>
-                        <li><MapPin size={16} /> Dhaka, Bangladesh</li>
-                    </ul>
-                    <div className="social-links">
-                        <a href="#"><Facebook size={20} /></a>
-                        <a href="#"><Instagram size={20} /></a>
-                        <a href="#"><Linkedin size={20} /></a>
-                    </div>
-                </div>
-            </div>
-            <div className="footer-bottom">
-                <p>&copy; {new Date().getFullYear()} PhysioCare BD. All rights reserved.</p>
-            </div>
+        <div className="footer-col">
+          <h4>Contact Info</h4>
+          <ul className="footer-contact">
+            <li><Mail size={16} /> <a href="mailto:sales@physiocarebdplus.com" className="contact-link">sales@physiocarebdplus.com</a></li>
+            <li><Phone size={16} /> +880 1700 000000</li>
+            <li><MapPin size={16} /> Dhaka, Bangladesh</li>
+          </ul>
+          <div className="social-links">
+            <a href="#"><Facebook size={20} /></a>
+            <a href="#"><Instagram size={20} /></a>
+            <a href="#"><Linkedin size={20} /></a>
+          </div>
+        </div>
+      </div>
+      <div className="footer-bottom">
+        <p>&copy; {new Date().getFullYear()} PhysioCare BD. All rights reserved.</p>
+      </div>
 
-            <style jsx>{`
+      <style jsx>{`
         .footer {
           background: #1e293b;
-          color: #94a3b8;
+          color: #cbd5e1;
           padding: 4rem 0 1rem;
         }
         .footer-logo {
@@ -222,9 +221,16 @@ const Footer = () => {
           align-items: center;
           gap: 0.75rem;
         }
+        .contact-link {
+          color: inherit;
+          transition: color 0.3s;
+        }
+        .contact-link:hover {
+          color: var(--primary);
+        }
         .social-links {
           display: flex;
-          gap: 1rem;
+          gap: 2rem;
           margin-top: 1.5rem;
         }
         .social-links a {
@@ -241,19 +247,19 @@ const Footer = () => {
           font-size: 0.9rem;
         }
       `}</style>
-        </footer>
-    );
+    </footer>
+  );
 };
 
 const Layout = ({ children }) => {
-    return (
-        <div className="layout">
-            <Navbar />
-            <main className="main-content">
-                {children}
-            </main>
-            <Footer />
-            <style jsx>{`
+  return (
+    <div className="layout">
+      <Navbar />
+      <main className="main-content">
+        {children}
+      </main>
+      <Footer />
+      <style jsx>{`
         .layout {
           display: flex;
           flex-direction: column;
@@ -263,8 +269,8 @@ const Layout = ({ children }) => {
           flex: 1;
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Layout;

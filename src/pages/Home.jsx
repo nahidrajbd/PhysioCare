@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle, ShieldCheck, Truck, Users } from 'lucide-react';
+import { ArrowRight, CheckCircle, ShieldCheck, Truck, Users, Zap, Activity, Heart, Thermometer, Move, Dumbbell } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import ProductCard from '../components/ProductCard';
@@ -123,15 +123,18 @@ const Home = () => {
           <h2 className="section-title text-center">Our Solutions</h2>
           <div className="categories-grid">
             {[
-              "Electrotherapy",
-              "Ultrasound Therapy",
-              "Rehabilitation",
-              "Heat & Cold Components",
-              "Traction Units",
-              "Exercise Equipment"
+              { name: "Electrotherapy", icon: Zap },
+              { name: "Ultrasound Therapy", icon: Activity },
+              { name: "Rehabilitation", icon: Heart },
+              { name: "Heat & Cold Components", icon: Thermometer },
+              { name: "Traction Units", icon: Move },
+              { name: "Exercise Equipment", icon: Dumbbell }
             ].map((cat, index) => (
               <Link to="/products" key={index} className="category-card">
-                <span>{cat}</span>
+                <div className="cat-content">
+                    <cat.icon size={24} className="cat-icon" />
+                    <span>{cat.name}</span>
+                </div>
                 <ArrowRight size={20} className="cat-arrow" />
               </Link>
             ))}
@@ -242,18 +245,37 @@ const Home = () => {
         .category-card {
           background: var(--white);
           border: 1px solid #e2e8f0;
-          padding: 1.5rem;
+          padding: 2rem; /* Increased padding */
           border-radius: var(--radius);
           display: flex;
           justify-content: space-between;
           align-items: center;
           font-weight: 600;
-          transition: all 0.3s;
+          transition: all 0.3s ease;
+          height: 100%;
+          cursor: pointer;
+        }
+        .cat-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .cat-icon {
+            color: var(--primary);
+            transition: transform 0.3s ease;
         }
         .category-card:hover {
           border-color: var(--primary);
-          color: var(--primary);
-          transform: translateX(5px);
+          transform: translateY(-5px);
+          box-shadow: var(--shadow-md);
+        }
+        .category-card:hover .cat-arrow {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        .cat-arrow {
+            transition: transform 0.3s ease, color 0.3s ease;
+            color: var(--text-light);
         }
         .mt-8 { margin-top: 3rem; }
         
