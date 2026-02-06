@@ -3,38 +3,122 @@ import ProductCard from '../components/ProductCard';
 const products = [
     {
         id: 1,
-        name: "TENS Therapy Unit",
-        description: "Advanced digital TENS machine for effective pain management and muscle stimulation.",
-        image: null // Placeholder handled in component
+        name: "KS08 Knee Open Patella",
+        description: "Adjustable knee support with open patella design for stability and comfort.",
+        image: null
     },
     {
         id: 2,
-        name: "Ultrasound Therapy Machine",
-        description: "Professional grade ultrasound device for deep tissue heating and healing.",
+        name: "WS01 Coccyx Support Splint",
+        description: "Specialized seating support for coccyx relief and posture correction.",
         image: null
     },
     {
         id: 3,
-        name: "Exercise Therapy Bands",
-        description: "High-quality resistance bands for strength training and rehabilitation exercises.",
+        name: "GP02 Ladies Heel Cushion",
+        description: "Soft silicone heel cushions designed to relieve heel pain and pressure.",
         image: null
     },
     {
         id: 4,
-        name: "Hot and Cold Therapy Pack",
-        description: "Reusable gel packs offering both cryotherapy and heat therapy solutions.",
+        name: "WS06 Thumb Support",
+        description: "Stabilizing support for thumb injuries and sprains.",
         image: null
     },
     {
         id: 5,
-        name: "Knee and Back Support Brace",
-        description: "Ergonomic supports designed to provide stability and relief for joint pain.",
+        name: "FA01 Arm Sling",
+        description: "Comfortable arm sling for immobilization and support during recovery.",
         image: null
     },
     {
         id: 6,
-        name: "Physiotherapy Treatment Table",
-        description: "Durable and adjustable treatment bed suitable for all heavy-duty clinical use.",
+        name: "KS04 Knee Support M",
+        description: "Medium compression knee support for daily use and mild strain.",
+        image: null
+    },
+    {
+        id: 7,
+        name: "KS18 Tubular Knee Support",
+        description: "Seamless tubular knee support for uniform compression.",
+        image: null
+    },
+    {
+        id: 8,
+        name: "WS11 Wrist & Forearm Brace",
+        description: "Rigid brace for wrist and forearm stabilization.",
+        image: null
+    },
+    {
+        id: 9,
+        name: "Hand IRR Lamp",
+        description: "Portable infrared lamp for localized heat therapy.",
+        image: null
+    },
+    {
+        id: 10,
+        name: "Stand IRR Luminous",
+        description: "Adjustable stand infrared lamp for professional clinical use.",
+        image: null
+    },
+    {
+        id: 11,
+        name: "Advance TENS 6 Channel",
+        description: "High-performance 6-channel TENS unit for multi-site pain management.",
+        image: null
+    },
+    {
+        id: 12,
+        name: "UST Beauty Double Head",
+        description: "Ultrasonic therapy device with double heads for versatile applications.",
+        image: null
+    },
+    {
+        id: 13,
+        name: "TENS 04 Channel EV-906",
+        description: "Digital 4-channel TENS/EMS unit for effective stimulation.",
+        image: null
+    },
+    {
+        id: 14,
+        name: "TENS China Leawell",
+        description: "Reliable TENS unit for home and clinical physiotherapy.",
+        image: null
+    },
+    {
+        id: 15,
+        name: "Medical Device",
+        description: "General purpose certified medical equipment.",
+        image: null
+    },
+    {
+        id: 16,
+        name: "UST Head China",
+        description: "Replacement ultrasound head for compatible therapy units.",
+        image: null
+    },
+    {
+        id: 17,
+        name: "Comfy Stim-806",
+        description: "User-friendly electrical stimulator for pain relief.",
+        image: null
+    },
+    {
+        id: 18,
+        name: "04 Channel TENS Cable",
+        description: "High-quality connecting cables for 4-channel TENS machines.",
+        image: null
+    },
+    {
+        id: 19,
+        name: "Bosu Ball Big",
+        description: "Large balance trainer for core stability and rehabilitation exercises.",
+        image: null
+    },
+    {
+        id: 20,
+        name: "Bosu Ball Small",
+        description: "Compact balance trainer suitable for targeted stability workouts.",
         image: null
     }
 ];

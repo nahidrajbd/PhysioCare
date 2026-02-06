@@ -9,19 +9,37 @@ const Home = () => {
     {
       id: 1,
       name: "TENS Therapy Unit",
-      description: "Advanced digital TENS machine for effective pain management and muscle stimulation.",
+      description: "Advanced digital TENS machine for pain management.",
       image: null
     },
     {
       id: 2,
-      name: "Ultrasound Therapy Machine",
-      description: "Professional grade ultrasound device for deep tissue heating and healing.",
+      name: "Ultrasound Therapy",
+      description: "Professional grade ultrasound device for deep tissue.",
       image: null
     },
     {
       id: 3,
-      name: "Exercise Therapy Bands",
-      description: "High-quality resistance bands for strength training and rehabilitation exercises.",
+      name: "Exercise Bands",
+      description: "High-quality resistance bands for rehabilitation.",
+      image: null
+    },
+    {
+      id: 4,
+      name: "Digital Traction",
+      description: "Precise traction therapy for spinal decompression.",
+      image: null
+    },
+    {
+      id: 5,
+      name: "Infrared Lamp",
+      description: "Therapeutic heating for muscle relaxation.",
+      image: null
+    },
+    {
+      id: 6,
+      name: "Wobble Board",
+      description: "Balance training aimed at ankle stability.",
       image: null
     }
   ];
@@ -99,23 +117,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Featured Products Section */}
-      <section className="section">
-        <div className="container">
-          <div className="section-header text-center">
-            <h2 className="section-title">Featured Products</h2>
-            <p className="section-subtitle">Top rated physiotherapy equipment for clinics and home use.</p>
-          </div>
-          <div className="featured-grid">
-            {featuredProducts.map(product => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <Link to="/products" className="btn btn-outline">View All Products</Link>
-          </div>
-        </div>
-      </section>
+
 
       {/* Product Categories Preview */}
       <section className="section bg-light">
@@ -132,12 +134,30 @@ const Home = () => {
             ].map((cat, index) => (
               <Link to="/products" key={index} className="category-card">
                 <div className="cat-content">
-                    <cat.icon size={24} className="cat-icon" />
-                    <span>{cat.name}</span>
+                  <cat.icon size={24} className="cat-icon" />
+                  <span>{cat.name}</span>
                 </div>
                 <ArrowRight size={20} className="cat-arrow" />
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Products Section */}
+      <section className="section">
+        <div className="container">
+          <div className="section-header text-center">
+            <h2 className="section-title">Featured Products</h2>
+            <p className="section-subtitle">Top rated physiotherapy equipment for clinics and home use.</p>
+          </div>
+          <div className="featured-grid">
+            {featuredProducts.map(product => (
+              <ProductCard key={product.id} product={product} hideAction={true} />
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link to="/products" className="btn btn-outline">View All Products</Link>
           </div>
         </div>
       </section>

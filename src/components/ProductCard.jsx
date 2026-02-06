@@ -2,33 +2,35 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const ProductCard = ({ product }) => {
-    return (
-        <motion.div
-            className="card product-card"
-            whileHover={{ y: -5 }}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-        >
-            <div className="card-image">
-                {product.image ? (
-                    <img src={product.image} alt={product.name} />
-                ) : (
-                    <div className="placeholder-image">
-                        <span>Image Coming Soon</span>
-                    </div>
-                )}
-            </div>
-            <div className="card-body">
-                <h3 className="card-title">{product.name}</h3>
-                <p className="card-desc">{product.description}</p>
-                <Link to="/contact" className="card-link">
-                    Inquire Now <ArrowRight size={16} />
-                </Link>
-            </div>
+const ProductCard = ({ product, hideAction }) => {
+  return (
+    <motion.div
+      className="card product-card"
+      whileHover={{ y: -5 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+    >
+      <div className="card-image">
+        {product.image ? (
+          <img src={product.image} alt={product.name} />
+        ) : (
+          <div className="placeholder-image">
+            <span>Image Coming Soon</span>
+          </div>
+        )}
+      </div>
+      <div className="card-body">
+        <h3 className="card-title">{product.name}</h3>
+        <p className="card-desc">{product.description}</p>
+        {!hideAction && (
+          <Link to="/contact" className="card-link">
+            Inquire Now <ArrowRight size={16} />
+          </Link>
+        )}
+      </div>
 
-            <style jsx>{`
+      <style jsx>{`
         .product-card {
           padding: 0;
           overflow: hidden;
@@ -88,8 +90,8 @@ const ProductCard = ({ product }) => {
           gap: 0.75rem;
         }
       `}</style>
-        </motion.div>
-    );
+    </motion.div>
+  );
 };
 
 export default ProductCard;
