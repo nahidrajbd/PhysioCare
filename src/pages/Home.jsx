@@ -1,116 +1,154 @@
 import { ArrowRight, CheckCircle, ShieldCheck, Truck, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import ProductCard from '../components/ProductCard';
+
 
 const Home = () => {
-    return (
-        <div className="home-page">
-            {/* Hero Section */}
-            <section className="hero">
-                <div className="container hero-container">
-                    <motion.div
-                        className="hero-content"
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <h1 className="hero-title">
-                            Advanced Physiotherapy <br />
-                            <span className="text-highlight">Equipment Solutions</span>
-                        </h1>
-                        <p className="hero-subtitle">
-                            PhysioCare BD is Bangladesh's premier supplier of medical-grade rehabilitation and physiotherapy equipment. trusted by clinics and professionals.
-                        </p>
-                        <div className="hero-buttons">
-                            <Link to="/products" className="btn btn-primary">
-                                Explore Products
-                            </Link>
-                            <Link to="/contact" className="btn btn-outline">
-                                Contact Us
-                            </Link>
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        className="hero-image"
-                        initial={{ opacity: 0, x: 30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                    >
-                        <div className="image-placeholder-gradient"></div>
-                    </motion.div>
+  const featuredProducts = [
+    {
+      id: 1,
+      name: "TENS Therapy Unit",
+      description: "Advanced digital TENS machine for effective pain management and muscle stimulation.",
+      image: null
+    },
+    {
+      id: 2,
+      name: "Ultrasound Therapy Machine",
+      description: "Professional grade ultrasound device for deep tissue heating and healing.",
+      image: null
+    },
+    {
+      id: 3,
+      name: "Exercise Therapy Bands",
+      description: "High-quality resistance bands for strength training and rehabilitation exercises.",
+      image: null
+    }
+  ];
+
+  return (
+    <div className="home-page">
+      {/* Hero Section */}
+      <section className="hero">
+        <div className="container hero-container">
+          <motion.div
+            className="hero-content"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="hero-title">
+              Advanced Physiotherapy <br />
+              <span className="text-highlight">Equipment Solutions</span>
+            </h1>
+            <p className="hero-subtitle">
+              PhysioCare BD is Bangladesh's premier supplier of medical-grade rehabilitation and physiotherapy equipment. trusted by clinics and professionals.
+            </p>
+            <div className="hero-buttons">
+              <Link to="/products" className="btn btn-primary">
+                Explore Products
+              </Link>
+              <Link to="/contact" className="btn btn-outline">
+                Contact Us
+              </Link>
+            </div>
+          </motion.div>
+          <motion.div
+            className="hero-image"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="image-placeholder-gradient"></div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Intro Section */}
+      <section className="section bg-light">
+        <div className="container">
+          <div className="section-header text-center">
+            <h2 className="section-title">Why PhysioCare BD?</h2>
+            <p className="section-subtitle">
+              We are dedicated to improving patient outcomes through high-quality, reliable, and affordable physiotherapy technology.
+            </p>
+          </div>
+
+          <div className="features-grid">
+            {[
+              { icon: ShieldCheck, title: "Quality Tested", desc: "All equipment undergoes rigorous quality checks." },
+              { icon: Truck, title: "Fast Delivery", desc: "Reliable shipping across all of Bangladesh." },
+              { icon: Users, title: "Expert Support", desc: "Professional guidance for clinics and home users." },
+            ].map((feature, index) => (
+              <motion.div
+                key={index}
+                className="feature-card"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="feature-icon">
+                  <feature.icon size={32} />
                 </div>
-            </section>
+                <h3>{feature.title}</h3>
+                <p>{feature.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            {/* Intro Section */}
-            <section className="section bg-light">
-                <div className="container">
-                    <div className="section-header text-center">
-                        <h2 className="section-title">Why PhysioCare BD?</h2>
-                        <p className="section-subtitle">
-                            We are dedicated to improving patient outcomes through high-quality, reliable, and affordable physiotherapy technology.
-                        </p>
-                    </div>
+      {/* Featured Products Section */}
+      <section className="section">
+        <div className="container">
+          <div className="section-header text-center">
+            <h2 className="section-title">Featured Products</h2>
+            <p className="section-subtitle">Top rated physiotherapy equipment for clinics and home use.</p>
+          </div>
+          <div className="featured-grid">
+            {featuredProducts.map(product => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link to="/products" className="btn btn-outline">View All Products</Link>
+          </div>
+        </div>
+      </section>
 
-                    <div className="features-grid">
-                        {[
-                            { icon: ShieldCheck, title: "Quality Tested", desc: "All equipment undergoes rigorous quality checks." },
-                            { icon: Truck, title: "Fast Delivery", desc: "Reliable shipping across all of Bangladesh." },
-                            { icon: Users, title: "Expert Support", desc: "Professional guidance for clinics and home users." },
-                        ].map((feature, index) => (
-                            <motion.div
-                                key={index}
-                                className="feature-card"
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                            >
-                                <div className="feature-icon">
-                                    <feature.icon size={32} />
-                                </div>
-                                <h3>{feature.title}</h3>
-                                <p>{feature.desc}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+      {/* Product Categories Preview */}
+      <section className="section bg-light">
+        <div className="container">
+          <h2 className="section-title text-center">Our Solutions</h2>
+          <div className="categories-grid">
+            {[
+              "Electrotherapy",
+              "Ultrasound Therapy",
+              "Rehabilitation",
+              "Heat & Cold Components",
+              "Traction Units",
+              "Exercise Equipment"
+            ].map((cat, index) => (
+              <Link to="/products" key={index} className="category-card">
+                <span>{cat}</span>
+                <ArrowRight size={20} className="cat-arrow" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            {/* Product Categories Preview */}
-            <section className="section">
-                <div className="container">
-                    <h2 className="section-title text-center">Our Solutions</h2>
-                    <div className="categories-grid">
-                        {[
-                            "Electrotherapy",
-                            "Ultrasound Therapy",
-                            "Rehabilitation",
-                            "Heat & Cold Components",
-                            "Traction Units",
-                            "Exercise Equipment"
-                        ].map((cat, index) => (
-                            <Link to="/products" key={index} className="category-card">
-                                <span>{cat}</span>
-                                <ArrowRight size={20} className="cat-arrow" />
-                            </Link>
-                        ))}
-                    </div>
-                    <div className="text-center mt-8">
-                        <Link to="/products" className="btn btn-primary">View All Products</Link>
-                    </div>
-                </div>
-            </section>
+      {/* CTA Section */}
+      <section className="cta-section">
+        <div className="container cta-container">
+          <h2>Ready to Upgrade Your Clinic?</h2>
+          <p>Get the best physiotherapy equipment in Bangladesh. Contact us today for a quote.</p>
+          <Link to="/contact" className="btn btn-white">Contact Sales</Link>
+        </div>
+      </section>
 
-            {/* CTA Section */}
-            <section className="cta-section">
-                <div className="container cta-container">
-                    <h2>Ready to Upgrade Your Clinic?</h2>
-                    <p>Get the best physiotherapy equipment in Bangladesh. Contact us today for a quote.</p>
-                    <Link to="/contact" className="btn btn-white">Contact Sales</Link>
-                </div>
-            </section>
-
-            <style jsx>{`
+      <style jsx>{`
         .hero {
           padding: 6rem 0;
           background: linear-gradient(to right, #f0fdfa, #ffffff);
@@ -188,9 +226,16 @@ const Home = () => {
           font-size: 1.25rem;
         }
         
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
         .categories-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          grid-template-columns: repeat(1, 1fr);
           gap: 1.5rem;
           margin-top: 3rem;
         }
@@ -239,6 +284,18 @@ const Home = () => {
           transform: scale(1.05);
         }
 
+        @media (min-width: 640px) {
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .categories-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
           .hero-container {
             grid-template-columns: 1fr;
@@ -256,8 +313,9 @@ const Home = () => {
           }
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 };
+
 
 export default Home;
