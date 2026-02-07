@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { Menu, X, Phone, Mail, MapPin, Facebook, Instagram, Youtube, Twitter } from 'lucide-react';
+import Tiktok from './icons/Tiktok';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
@@ -177,9 +178,11 @@ const Footer = () => {
             <li><MapPin size={16} /> Dhaka, Bangladesh</li>
           </ul>
           <div className="social-links">
-            <a href="#"><Facebook size={20} /></a>
-            <a href="#"><Instagram size={20} /></a>
-            <a href="#"><Linkedin size={20} /></a>
+            <a href="https://www.facebook.com/physiocarebdplus/" target="_blank" rel="noopener noreferrer"><Facebook size={20} /></a>
+            <a href="https://www.instagram.com/physiocarebdplus/" target="_blank" rel="noopener noreferrer"><Instagram size={20} /></a>
+            <a href="https://www.youtube.com/@PhysioCareBDPlus" target="_blank" rel="noopener noreferrer"><Youtube size={20} /></a>
+            <a href="https://x.com/physiocarebd" target="_blank" rel="noopener noreferrer"><Twitter size={20} /></a>
+            <a href="https://www.tiktok.com/@physiocarebdplus" target="_blank" rel="noopener noreferrer"><Tiktok size={20} /></a>
           </div>
         </div>
       </div>
