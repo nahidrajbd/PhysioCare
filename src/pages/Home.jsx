@@ -3,51 +3,51 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import ProductCard from '../components/ProductCard';
 
-
-import tensImage from '../assets/tens-therapy-unit.jpg';
-import ultrasoundImage from '../assets/ultrasound-therapy-device.jpg';
-import exerciseImage from '../assets/exercise-therapy-bands.jpg';
-import tractionImage from '../assets/digital-traction-machine.jpg';
-import infraredImage from '../assets/infrared-therapy-lamp.jpg';
-import wobbleImage from '../assets/wobble-board.jpg';
+// Import featured product images
+import exerciseBandImage from '../assets/Products/exercise-resistance-band-sports-band.png';
+import foldableBedImage from '../assets/Products/foldable-physiotherapy-exercise-bed.png';
+import spineModelImage from '../assets/Products/full-spine-anatomical-model.png';
+import kinesiologyTapeImage from '../assets/Products/kinesiology-sports-tape.png';
+import kneeModelImage from '../assets/Products/knee-joint-anatomy-model.png';
+import manualBedImage from '../assets/Products/manual-exercise-bed-ss-ms-frame.png';
 
 const Home = () => {
   const featuredProducts = [
     {
       id: 1,
-      name: "TENS Therapy Unit",
-      description: "Advanced digital TENS machine for pain management.",
-      image: tensImage
+      name: "Exercise Resistance Band (Sports Band)",
+      description: "Elastic resistance band ideal for strength training, stretching, and rehabilitation exercises, helping improve muscle strength, flexibility, and joint stability for all fitness levels.",
+      image: exerciseBandImage
     },
     {
       id: 2,
-      name: "Ultrasound Therapy",
-      description: "Professional grade ultrasound device for deep tissue.",
-      image: ultrasoundImage
+      name: "Foldable Physiotherapy Exercise Bed",
+      description: "Space-saving treatment bed designed for clinics and home visits, offering a sturdy, comfortable surface for manual therapy, exercise, and patient assessment.",
+      image: foldableBedImage
     },
     {
       id: 3,
-      name: "Exercise Bands",
-      description: "High-quality resistance bands for rehabilitation.",
-      image: exerciseImage
+      name: "Full Spine Anatomical Model",
+      description: "Life-size full spine model showing vertebrae, discs, and pelvis, perfect for teaching posture, spinal disorders, and treatment plans to patients and students.",
+      image: spineModelImage
     },
     {
       id: 4,
-      name: "Digital Traction",
-      description: "Precise traction therapy for spinal decompression.",
-      image: tractionImage
+      name: "Kinesiology Sports Tape",
+      description: "Elastic kinesiology tape that supports muscles and joints without limiting movement, helps reduce pain, swelling, and speeds recovery during sports and daily activities.",
+      image: kinesiologyTapeImage
     },
     {
       id: 5,
-      name: "Infrared Lamp",
-      description: "Therapeutic heating for muscle relaxation.",
-      image: infraredImage
+      name: "Knee Joint Anatomy Model",
+      description: "Detailed knee joint model showing bones, ligaments, and cartilage, ideal for explaining injuries like ACL tears, osteoarthritis, and post-surgery rehab protocols.",
+      image: kneeModelImage
     },
     {
       id: 6,
-      name: "Wobble Board",
-      description: "Balance training aimed at ankle stability.",
-      image: wobbleImage
+      name: "Manual Exercise Bed (SS & MS Frame)",
+      description: "Durable manual exercise bed made with stainless steel and mild steel, designed for therapeutic exercises, stretching, and positioning in physiotherapy settings.",
+      image: manualBedImage
     }
   ];
 

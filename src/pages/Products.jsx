@@ -1,125 +1,133 @@
 import ProductCard from '../components/ProductCard';
 
+// Import product images
+import exerciseBandImage from '../assets/Products/exercise-resistance-band-sports-band.png';
+import foldableBedImage from '../assets/Products/foldable-physiotherapy-exercise-bed.png';
+import spineModelImage from '../assets/Products/full-spine-anatomical-model.png';
+import kinesiologyTapeImage from '../assets/Products/kinesiology-sports-tape.png';
+import kneeModelImage from '../assets/Products/knee-joint-anatomy-model.png';
+import manualBedImage from '../assets/Products/manual-exercise-bed-ss-ms-frame.png';
+import miniShockwaveImage from '../assets/Products/mini-shockwave-therapy-machine.png';
+import miniSkeletonImage from '../assets/Products/mini-human-skeleton-model.png';
+import irrStandImage from '../assets/Products/non-luminous-irr-stand-infrared-therapy-stand.png';
+import rtmsImage from '../assets/Products/rtms-brain-therapy-machine.png';
+import roboticHandImage from '../assets/Products/robotic-hand-exercise-trainer.png';
+import shockwaveImage from '../assets/Products/shockwave-therapy-machine.png';
+import shortwaveImage from '../assets/Products/shortwave-diathermy-therapy-machine.png';
+import shoulderModelImage from '../assets/Products/shoulder-joint-anatomy-model.png';
+import infraredStandImage from '../assets/Products/infrared-stand-275w-timer-regulator.png';
+import tensEmsImage from '../assets/Products/taiwan-tens-ems-machine-ev-906.png';
+import ultrasoundImage from '../assets/Products/ultrasound-therapy-machine.png';
+import weightCuffImage from '../assets/Products/weight-cuff-ankle-wrist-weight.png';
+
 const products = [
     {
         id: 1,
-        name: "KS08 Knee Open Patella",
-        description: "Adjustable knee support with open patella design for stability and comfort.",
-        image: null
+        name: "Exercise Resistance Band (Sports Band)",
+        description: "Elastic resistance band ideal for strength training, stretching, and rehabilitation exercises, helping improve muscle strength, flexibility, and joint stability for all fitness levels.",
+        image: exerciseBandImage
     },
     {
         id: 2,
-        name: "WS01 Coccyx Support Splint",
-        description: "Specialized seating support for coccyx relief and posture correction.",
-        image: null
+        name: "Foldable Physiotherapy Exercise Bed",
+        description: "Space-saving treatment bed designed for clinics and home visits, offering a sturdy, comfortable surface for manual therapy, exercise, and patient assessment.",
+        image: foldableBedImage
     },
     {
         id: 3,
-        name: "GP02 Ladies Heel Cushion",
-        description: "Soft silicone heel cushions designed to relieve heel pain and pressure.",
-        image: null
+        name: "Full Spine Anatomical Model",
+        description: "Life-size full spine model showing vertebrae, discs, and pelvis, perfect for teaching posture, spinal disorders, and treatment plans to patients and students.",
+        image: spineModelImage
     },
     {
         id: 4,
-        name: "WS06 Thumb Support",
-        description: "Stabilizing support for thumb injuries and sprains.",
-        image: null
+        name: "Kinesiology Sports Tape",
+        description: "Elastic kinesiology tape that supports muscles and joints without limiting movement, helps reduce pain, swelling, and speeds recovery during sports and daily activities.",
+        image: kinesiologyTapeImage
     },
     {
         id: 5,
-        name: "FA01 Arm Sling",
-        description: "Comfortable arm sling for immobilization and support during recovery.",
-        image: null
+        name: "Knee Joint Anatomy Model",
+        description: "Detailed knee joint model showing bones, ligaments, and cartilage, ideal for explaining injuries like ACL tears, osteoarthritis, and post-surgery rehab protocols.",
+        image: kneeModelImage
     },
     {
         id: 6,
-        name: "KS04 Knee Support M",
-        description: "Medium compression knee support for daily use and mild strain.",
-        image: null
+        name: "Manual Exercise Bed (SS & MS Frame)",
+        description: "Durable manual exercise bed made with stainless steel and mild steel, designed for therapeutic exercises, stretching, and positioning in physiotherapy settings.",
+        image: manualBedImage
     },
     {
         id: 7,
-        name: "KS18 Tubular Knee Support",
-        description: "Seamless tubular knee support for uniform compression.",
-        image: null
+        name: "Mini Shockwave Therapy Machine",
+        description: "Compact extracorporeal shockwave device used to relieve chronic muscle and tendon pain, promote tissue healing, and support faster recovery in sports and ortho rehab.",
+        image: miniShockwaveImage
     },
     {
         id: 8,
-        name: "WS11 Wrist & Forearm Brace",
-        description: "Rigid brace for wrist and forearm stabilization.",
-        image: null
+        name: "Mini Human Skeleton Model",
+        description: "Portable skeleton model with key bones and joints labeled, excellent for basic anatomical teaching, clinic demonstrations, and patient education.",
+        image: miniSkeletonImage
     },
     {
         id: 9,
-        name: "Hand IRR Lamp",
-        description: "Portable infrared lamp for localized heat therapy.",
-        image: null
+        name: "Non‑Luminous IRR Stand (Infrared Therapy Stand)",
+        description: "Infrared therapy stand with non-luminous IR lamp head, used to provide deep heat for pain relief, muscle relaxation, and improved local blood circulation.",
+        image: irrStandImage
     },
     {
         id: 10,
-        name: "Stand IRR Luminous",
-        description: "Adjustable stand infrared lamp for professional clinical use.",
-        image: null
+        name: "rTMS Brain Therapy Machine",
+        description: "Repetitive Transcranial Magnetic Stimulation system designed to deliver non-invasive magnetic pulses to targeted brain areas, supporting treatment of neurological and psychiatric conditions under medical supervision.",
+        image: rtmsImage
     },
     {
         id: 11,
-        name: "Advance TENS 6 Channel",
-        description: "High-performance 6-channel TENS unit for multi-site pain management.",
-        image: null
+        name: "Robotic Hand Exercise Trainer",
+        description: "Rehabilitation robotic hand device that assists active and passive finger and hand movements, helping patients regain strength, coordination, and functional use after stroke or nerve injury.",
+        image: roboticHandImage
     },
     {
         id: 12,
-        name: "UST Beauty Double Head",
-        description: "Ultrasonic therapy device with double heads for versatile applications.",
-        image: null
+        name: "Shockwave Therapy Machine",
+        description: "Professional ESWT shockwave unit for non-invasive treatment of plantar fasciitis, tendinopathy, and chronic musculoskeletal pain, enhancing blood flow and tissue regeneration.",
+        image: shockwaveImage
     },
     {
         id: 13,
-        name: "TENS 04 Channel EV-906",
-        description: "Digital 4-channel TENS/EMS unit for effective stimulation.",
-        image: null
+        name: "Shortwave Diathermy Therapy Machine",
+        description: "Shortwave therapy device that delivers deep heat to muscles and joints, used to reduce pain, stiffness, and muscle spasm in physiotherapy and rehab clinics.",
+        image: shortwaveImage
     },
     {
         id: 14,
-        name: "TENS China Leawell",
-        description: "Reliable TENS unit for home and clinical physiotherapy.",
-        image: null
+        name: "Shoulder Joint Anatomy Model",
+        description: "Anatomical shoulder model displaying humerus, scapula, clavicle, and key ligaments, ideal for explaining rotator cuff injuries, dislocations, and rehab plans to patients.",
+        image: shoulderModelImage
     },
     {
         id: 15,
-        name: "Medical Device",
-        description: "General purpose certified medical equipment.",
-        image: null
+        name: "Infrared Stand 275W with Timer & Regulator",
+        description: "Height-adjustable infrared stand with 275-watt bulb, built-in timer, and intensity regulator, providing controlled heat therapy for pain relief and muscle relaxation.",
+        image: infraredStandImage
     },
     {
         id: 16,
-        name: "UST Head China",
-        description: "Replacement ultrasound head for compatible therapy units.",
-        image: null
+        name: "Taiwan TENS + EMS Machine EV‑906",
+        description: "Four-channel digital TENS/EMS unit from Taiwan that combines pain relief and muscle stimulation, with multiple preset programs for chronic pain, muscle strengthening, and post-injury rehab.",
+        image: tensEmsImage
     },
     {
         id: 17,
-        name: "Comfy Stim-806",
-        description: "User-friendly electrical stimulator for pain relief.",
-        image: null
+        name: "Ultrasound Therapy Machine",
+        description: "Therapeutic ultrasound device used to deliver deep tissue heating and micro-massage, helping reduce pain, inflammation, and promote soft tissue healing in physio practice.",
+        image: ultrasoundImage
     },
     {
         id: 18,
-        name: "04 Channel TENS Cable",
-        description: "High-quality connecting cables for 4-channel TENS machines.",
-        image: null
-    },
-    {
-        id: 19,
-        name: "Bosu Ball Big",
-        description: "Large balance trainer for core stability and rehabilitation exercises.",
-        image: null
-    },
-    {
-        id: 20,
-        name: "Bosu Ball Small",
-        description: "Compact balance trainer suitable for targeted stability workouts.",
-        image: null
+        name: "Weight Cuff (Ankle/Wrist Weight)",
+        description: "Adjustable weight cuff for ankle or wrist, used to add resistance during strengthening and gait training exercises, improving muscle power and endurance in rehab programs.",
+        image: weightCuffImage
     }
 ];
 
