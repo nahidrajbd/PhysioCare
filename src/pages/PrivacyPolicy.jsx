@@ -4,21 +4,41 @@ const PrivacyPolicy = () => {
             <div className="container">
                 <h1>Privacy Policy</h1>
                 <div className="content">
-                    <p><strong>PhysioCare BD respects your privacy.</strong></p>
-                    <p>We collect basic information such as name, phone number, email address, and message details when you contact us through our website or social media.</p>
+                    <p>PhysioCare BD values your privacy and is committed to protecting your personal information.</p>
 
-                    <h3>We use this information only to:</h3>
+                    <h3>Information We Collect</h3>
+                    <p>We may collect basic information such as your name, phone number, email address, and message details when you contact us through our website, social media, or WhatsApp.</p>
+
+                    <h3>How We Use Your Information</h3>
+                    <p>We use your information to:</p>
                     <ul>
-                        <li>Respond to your inquiry</li>
-                        <li>Provide product information</li>
-                        <li>Improve our service</li>
+                        <li>Respond to your inquiries</li>
+                        <li>Provide product details and support</li>
+                        <li>Improve our services and communication</li>
                     </ul>
 
-                    <p>We do not sell or share your personal information with third parties, except when required by law.</p>
+                    <h3>Information Sharing</h3>
+                    <p>We do not sell, trade, or share your personal information with third parties.</p>
+                    <p>Your information may only be shared if required by law.</p>
 
-                    <p>Our website may use cookies to improve user experience. You can choose to disable cookies in your browser.</p>
+                    <h3>Cookies</h3>
+                    <p>Our website may use cookies to improve user experience.</p>
+                    <p>You can disable cookies anytime from your browser settings.</p>
 
-                    <p>By using our website, you agree to this Privacy Policy.</p>
+                    <h3>Data Security</h3>
+                    <p>We take reasonable steps to protect your information from unauthorized access or misuse.</p>
+
+                    <h3>Third Party Links</h3>
+                    <p>Our website may contain links to other websites.</p>
+                    <p>We are not responsible for their content or privacy practices.</p>
+
+                    <h3>Updates</h3>
+                    <p>We may update this Privacy Policy from time to time.</p>
+                    <p>Any changes will be posted on this page.</p>
+
+                    <h3>Contact Us</h3>
+                    <p>If you have any questions, please contact us at:</p>
+                    <p>Email: <a href="mailto:sales@physiocarebdplus.com">sales@physiocarebdplus.com</a></p>
                 </div>
             </div>
             <style jsx>{`
@@ -58,6 +78,13 @@ const PrivacyPolicy = () => {
             margin-bottom: 1rem;
             color: var(--text-light);
             line-height: 1.6;
+        }
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
       `}</style>
         </div>
