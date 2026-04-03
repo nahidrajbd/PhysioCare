@@ -73,7 +73,7 @@ const Home = () => {
               <Link to="/products" className="btn btn-primary">
                 Explore Products
               </Link>
-              <a href="https://wa.me/8801711238555" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+              <a href="https://wa.me/8801818758882" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
                 Contact Us
               </a>
             </div>
