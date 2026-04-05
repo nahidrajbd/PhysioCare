@@ -40,7 +40,8 @@ const ProductCard = ({ product, hideAction }) => {
           flex-direction: column;
         }
         .card-image {
-          height: 200px;
+          aspect-ratio: 1 / 1;
+          width: 100%;
           background: #f1f5f9;
           display: flex;
           align-items: center;
