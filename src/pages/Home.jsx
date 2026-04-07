@@ -4,50 +4,50 @@ import { motion } from 'framer-motion';
 import ProductCard from '../components/ProductCard';
 
 // Import featured product images
-import exerciseBandImage from '../assets/Products/exercise-resistance-band-sports-band.png';
-import foldableBedImage from '../assets/Products/foldable-physiotherapy-exercise-bed.png';
-import spineModelImage from '../assets/Products/full-spine-anatomical-model.png';
-import kinesiologyTapeImage from '../assets/Products/kinesiology-sports-tape.png';
-import kneeModelImage from '../assets/Products/knee-joint-anatomy-model.png';
-import manualBedImage from '../assets/Products/manual-exercise-bed-ss-ms-frame.png';
+import shockwaveImage from '../assets/Products/Shockwave Therapy Machine.jpg';
+import rfTecerImage from '../assets/Products/448kHz Radio Frequency (RF) Tecar Therapy machine.jpg';
+import tensImage from '../assets/Products/4-channel TENS (Transcutaneous Electrical Nerve Stimulation).jpg';
+import electricBedsImage from '../assets/Products/Electric physiotherapy therapy beds.jpg';
+import taiwanTensImage from '../assets/Products/Taiwan Tens Machine EV-906.jpg';
+import shoulderJointImage from '../assets/Products/Shoulder Joint Anatomy Model.jpg';
 
 const Home = () => {
   const featuredProducts = [
     {
       id: 1,
-      name: "Exercise Resistance Band (Sports Band)",
-      description: "Elastic resistance band ideal for strength training, stretching, and rehabilitation exercises, helping improve muscle strength, flexibility, and joint stability for all fitness levels.",
-      image: exerciseBandImage
+      name: "Shockwave Therapy Machine",
+      description: "Professional ESWT shockwave unit for non-invasive treatment of plantar fasciitis, tendinopathy, and chronic musculoskeletal pain, enhancing blood flow and tissue regeneration.",
+      image: shockwaveImage
     },
     {
       id: 2,
-      name: "Foldable Physiotherapy Exercise Bed",
-      description: "Space-saving treatment bed designed for clinics and home visits, offering a sturdy, comfortable surface for manual therapy, exercise, and patient assessment.",
-      image: foldableBedImage
+      name: "448kHz Radio Frequency (RF) Tecar Therapy Machine",
+      description: "Advanced Tecar therapy device using 448kHz radiofrequency to deliver deep tissue heating, accelerating cellular repair, reducing inflammation, and relieving chronic pain.",
+      image: rfTecerImage
     },
     {
       id: 3,
-      name: "Full Spine Anatomical Model",
-      description: "Life-size full spine model showing vertebrae, discs, and pelvis, perfect for teaching posture, spinal disorders, and treatment plans to patients and students.",
-      image: spineModelImage
+      name: "4-Channel TENS (Transcutaneous Electrical Nerve Stimulation)",
+      description: "Four-channel TENS unit delivering targeted electrical pulses to block pain signals and stimulate endorphin release, ideal for chronic pain and post-surgical rehab.",
+      image: tensImage
     },
     {
       id: 4,
-      name: "Kinesiology Sports Tape",
-      description: "Elastic kinesiology tape that supports muscles and joints without limiting movement, helps reduce pain, swelling, and speeds recovery during sports and daily activities.",
-      image: kinesiologyTapeImage
+      name: "Electric Physiotherapy Therapy Beds",
+      description: "Electrically adjustable multi-section therapy beds with motorised height and tilt functions, designed for clinical treatment, patient comfort, and easy therapist access.",
+      image: electricBedsImage
     },
     {
       id: 5,
-      name: "Knee Joint Anatomy Model",
-      description: "Detailed knee joint model showing bones, ligaments, and cartilage, ideal for explaining injuries like ACL tears, osteoarthritis, and post-surgery rehab protocols.",
-      image: kneeModelImage
+      name: "Taiwan Tens Machine EV\u2011906",
+      description: "High-performance TENS/EMS combination unit from Taiwan with multiple preset programs for pain management, muscle stimulation, and post-injury rehabilitation.",
+      image: taiwanTensImage
     },
     {
       id: 6,
-      name: "Manual Exercise Bed (SS & MS Frame)",
-      description: "Durable manual exercise bed made with stainless steel and mild steel, designed for therapeutic exercises, stretching, and positioning in physiotherapy settings.",
-      image: manualBedImage
+      name: "Shoulder Joint Anatomy Model",
+      description: "Anatomical shoulder model displaying humerus, scapula, clavicle, and key ligaments, ideal for explaining rotator cuff injuries, dislocations, and rehab plans to patients.",
+      image: shoulderJointImage
     }
   ];
 
