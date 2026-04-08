@@ -174,7 +174,7 @@ const Home = () => {
         <div className="container cta-container">
           <h2>Ready to Upgrade Your Clinic?</h2>
           <p>Get the best physiotherapy equipment in Bangladesh. Contact us today for a quote.</p>
-          <a href="https://wa.me/8801711238555" target="_blank" rel="noopener noreferrer" className="btn btn-white">Contact Sales</a>
+          <a href="https://wa.me/8801818758882" target="_blank" rel="noopener noreferrer" className="btn btn-white">Contact Sales</a>
         </div>
       </section>
 
