@@ -1,0 +1,236 @@
+// Post-build SEO pass for physiocarebdplus.com (Vite + React Router SPA on
+// Cloudflare Pages). Runs after `vite build`:
+//   1. For every public route, writes dist/<route>/index.html as a copy of
+//      the built app shell with that route's own title, meta description,
+//      self-canonical and OG/Twitter URL, title and description, so the raw
+//      HTML of each route is unique and indexable. The homepage keeps the
+//      meta already present in index.html and is only verified.
+//   2. Writes dist/robots.txt and dist/sitemap.xml covering all public
+//      routes on the canonical www host.
+//   3. Writes dist/404.html, a standalone not-found page. Cloudflare Pages
+//      serves 404.html with a real 404 status for unmatched URLs. No
+//      catch-all _redirects rule is added: the app relies on client-side
+//      routing, and a splat 404 redirect could break its routes.
+//
+// Copy rule: titles and descriptions below only restate what each page and
+// the business already say about themselves. No prices, specs, medical or
+// treatment claims, guarantees, hours or ratings are introduced.
+
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const rootDir = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
+const distDir = path.join(rootDir, "dist");
+const SITE = "https://www.physiocarebdplus.com";
+const LASTMOD = "2026-11-22";
+
+const ROUTES = [
+  {
+    path: "/",
+    changefreq: "daily",
+    priority: "1.0",
+    // Homepage meta lives in index.html and is verified, not replaced.
+    title: "PhysioCare BD - Physiotherapy Machine & Equipment Price in Bangladesh",
+  },
+  {
+    path: "/about",
+    changefreq: "monthly",
+    priority: "0.8",
+    title: "About Us | PhysioCare BD Plus",
+    description:
+      "Learn about PhysioCare BD Plus, a supplier of physiotherapy and rehabilitation equipment to hospitals, clinics and individual patients across Bangladesh, founded by CEO Md. Kamruzzaman Sumon.",
+  },
+  {
+    path: "/products",
+    changefreq: "weekly",
+    priority: "0.9",
+    title: "Our Products | PhysioCare BD Plus",
+    description:
+      "Browse physiotherapy and rehabilitation equipment from PhysioCare BD Plus, including TENS and EMS machines, ultrasound therapy machines, shockwave therapy machines, traction units, therapy beds and exercise equipment supplied across Bangladesh.",
+  },
+  {
+    path: "/why-choose-us",
+    changefreq: "monthly",
+    priority: "0.7",
+    title: "Why Choose Us | PhysioCare BD Plus",
+    description:
+      "Why hospitals, clinics and individual patients across Bangladesh choose PhysioCare BD Plus as their supplier of physiotherapy and rehabilitation equipment.",
+  },
+  {
+    path: "/contact",
+    changefreq: "monthly",
+    priority: "0.8",
+    title: "Contact Us | PhysioCare BD Plus",
+    description:
+      "Contact PhysioCare BD Plus by email at sales@physiocarebdplus.com or on WhatsApp for physiotherapy and rehabilitation equipment enquiries anywhere in Bangladesh.",
+  },
+  {
+    path: "/privacy-policy",
+    changefreq: "yearly",
+    priority: "0.5",
+    title: "Privacy Policy | PhysioCare BD Plus",
+    description: "Read the privacy policy of PhysioCare BD Plus (physiocarebdplus.com).",
+  },
+  {
+    path: "/terms-and-conditions",
+    changefreq: "yearly",
+    priority: "0.5",
+    title: "Terms and Conditions | PhysioCare BD Plus",
+    description: "Read the terms and conditions of PhysioCare BD Plus (physiocarebdplus.com).",
+  },
+  {
+    path: "/disclaimer",
+    changefreq: "yearly",
+    priority: "0.5",
+    title: "Disclaimer | PhysioCare BD Plus",
+    description: "Read the disclaimer of PhysioCare BD Plus (physiocarebdplus.com).",
+  },
+  {
+    path: "/shipping-info",
+    changefreq: "yearly",
+    priority: "0.6",
+    title: "Shipping Information | PhysioCare BD Plus",
+    description:
+      "Shipping and delivery information for orders from PhysioCare BD Plus, supplying physiotherapy and rehabilitation equipment across Bangladesh.",
+  },
+  {
+    path: "/return-policy",
+    changefreq: "yearly",
+    priority: "0.6",
+    title: "Return Policy | PhysioCare BD Plus",
+    description: "Read the return and refund policy of PhysioCare BD Plus (physiocarebdplus.com).",
+  },
+  {
+    path: "/sitemap",
+    changefreq: "yearly",
+    priority: "0.3",
+    title: "Sitemap | PhysioCare BD Plus",
+    description: "Browse all pages of the PhysioCare BD Plus website in one list.",
+  },
+];
+
+function replaceOnce(html, regex, replacement, label, routePath) {
+  if (!regex.test(html)) {
+    throw new Error(`prerender: could not find ${label} while building ${routePath}`);
+  }
+  return html.replace(regex, replacement);
+}
+
+function applyRouteMeta(shell, route) {
+  const url = route.path === "/" ? `${SITE}/` : `${SITE}${route.path}`;
+  let html = shell;
+  html = replaceOnce(html, /<title>[\s\S]*?<\/title>/, `<title>${route.title}</title>`, "title", route.path);
+  html = replaceOnce(
+    html,
+    /<meta name="description"[\s\S]*?\/>/,
+    `<meta name="description" content="${route.description}" />`,
+    "meta description",
+    route.path
+  );
+  html = replaceOnce(
+    html,
+    /<link rel="canonical" href="[^"]*" \/>/,
+    `<link rel="canonical" href="${url}" />`,
+    "canonical",
+    route.path
+  );
+  html = replaceOnce(html, /<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${url}" />`, "og:url", route.path);
+  html = replaceOnce(html, /<meta property="og:title" content="[^"]*" \/>/, `<meta property="og:title" content="${route.title}" />`, "og:title", route.path);
+  html = replaceOnce(
+    html,
+    /<meta property="og:description"[\s\S]*?\/>/,
+    `<meta property="og:description" content="${route.description}" />`,
+    "og:description",
+    route.path
+  );
+  html = replaceOnce(html, /<meta name="twitter:url" content="[^"]*" \/>/, `<meta name="twitter:url" content="${url}" />`, "twitter:url", route.path);
+  html = replaceOnce(html, /<meta name="twitter:title" content="[^"]*" \/>/, `<meta name="twitter:title" content="${route.title}" />`, "twitter:title", route.path);
+  html = replaceOnce(
+    html,
+    /<meta name="twitter:description"[\s\S]*?\/>/,
+    `<meta name="twitter:description" content="${route.description}" />`,
+    "twitter:description",
+    route.path
+  );
+  return html;
+}
+
+// --- 1. Per-route HTML -------------------------------------------------------
+const indexPath = path.join(distDir, "index.html");
+const shell = fs.readFileSync(indexPath, "utf8");
+
+if (!shell.includes(`<link rel="canonical" href="${SITE}/" />`)) {
+  throw new Error("prerender: homepage self-canonical missing from built index.html");
+}
+if (!shell.includes('"@type": "Organization"') || !shell.includes('"@type": "Store"') || !shell.includes('"@type": "WebSite"')) {
+  throw new Error("prerender: JSON-LD @graph missing from built index.html");
+}
+console.log("prerender: homepage meta verified");
+
+for (const route of ROUTES) {
+  if (route.path === "/") continue;
+  const outDir = path.join(distDir, route.path.slice(1));
+  fs.mkdirSync(outDir, { recursive: true });
+  fs.writeFileSync(path.join(outDir, "index.html"), applyRouteMeta(shell, route));
+  console.log(`prerender: wrote ${route.path}/index.html`);
+}
+
+// --- 2. robots.txt + sitemap.xml ---------------------------------------------
+const robots = `User-agent: *
+Allow: /
+
+Sitemap: ${SITE}/sitemap.xml
+`;
+fs.writeFileSync(path.join(distDir, "robots.txt"), robots);
+
+const urls = ROUTES.map((route) => {
+  const loc = route.path === "/" ? `${SITE}/` : `${SITE}${route.path}`;
+  return `  <url>
+    <loc>${loc}</loc>
+    <lastmod>${LASTMOD}</lastmod>
+    <changefreq>${route.changefreq}</changefreq>
+    <priority>${route.priority}</priority>
+  </url>`;
+}).join("\n");
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls}
+</urlset>
+`;
+fs.writeFileSync(path.join(distDir, "sitemap.xml"), sitemap);
+console.log("prerender: wrote robots.txt and sitemap.xml");
+
+// --- 3. Standalone 404 page ----------------------------------------------------
+const notFound = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, follow" />
+    <title>Page Not Found | PhysioCare BD Plus</title>
+    <meta name="description" content="The page you are looking for could not be found. Return to the PhysioCare BD Plus homepage." />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <style>
+      body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: #f7fafc; color: #1f2937; display: flex; min-height: 100vh; align-items: center; justify-content: center; }
+      main { text-align: center; padding: 2rem; max-width: 34rem; }
+      .code { font-size: 4rem; font-weight: 700; color: #1d6fb8; margin: 0; }
+      h1 { font-size: 1.75rem; margin: 0.5rem 0 1rem; }
+      p { line-height: 1.7; margin: 0 0 1.5rem; }
+      a { display: inline-block; background: #1d6fb8; color: #fff; text-decoration: none; padding: 0.75rem 1.75rem; border-radius: 9999px; font-weight: 600; margin: 0 0.25rem; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="code">404</p>
+      <h1>Page not found</h1>
+      <p>Sorry, the page you are looking for could not be found or has been moved.</p>
+      <a href="/">Back to homepage</a>
+      <a href="/products">Browse products</a>
+    </main>
+  </body>
+</html>
+`;
+fs.writeFileSync(path.join(distDir, "404.html"), notFound);
+console.log("prerender: wrote 404.html");
+console.log("prerender done");
