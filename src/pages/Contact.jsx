@@ -4,7 +4,16 @@ import { motion } from 'framer-motion';
 const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Thank you for your message! We will get back to you soon.");
+    const form = new FormData(e.target);
+    const lines = [
+      "Hello PhysioCare BD, I have an enquiry from the website.",
+      `Name: ${form.get("name") || ""}`,
+      form.get("phone") ? `Phone: ${form.get("phone")}` : null,
+      form.get("email") ? `Email: ${form.get("email")}` : null,
+      `Message: ${form.get("message") || ""}`,
+    ].filter(Boolean);
+    const url = `https://wa.me/8801818758882?text=${encodeURIComponent(lines.join("\n"))}`;
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -71,26 +80,26 @@ const Contact = () => {
               <h3>Send us a Message</h3>
               <div className="form-group">
                 <label>Your Name</label>
-                <input type="text" placeholder="Enter your full name" required />
+                <input type="text" name="name" placeholder="Enter your full name" required />
               </div>
 
               <div className="form-group">
                 <label>Email Address</label>
-                <input type="email" placeholder="Enter your email" required />
+                <input type="email" name="email" placeholder="Enter your email" required />
               </div>
 
               <div className="form-group">
                 <label>Phone Number</label>
-                <input type="tel" placeholder="Enter your phone number" />
+                <input type="tel" name="phone" placeholder="Enter your phone number" />
               </div>
 
               <div className="form-group">
                 <label>Message</label>
-                <textarea rows="5" placeholder="Which product are you interested in?" required></textarea>
+                <textarea rows="5" name="message" placeholder="Which product are you interested in?" required></textarea>
               </div>
 
               <button type="submit" className="btn btn-primary w-full">
-                Send Message <Send size={18} style={{ marginLeft: '8px' }} />
+                Send via WhatsApp <Send size={18} style={{ marginLeft: '8px' }} />
               </button>
             </form>
           </motion.div>

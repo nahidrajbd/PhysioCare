@@ -23,9 +23,12 @@ const ScrollToTop = () => {
   return null;
 };
 
-function App() {
+// Shared content used by both the browser app and the build time
+// server render (src/entry-server.jsx), so prerendered pages carry
+// the same content the visitor sees.
+export function AppContent() {
   return (
-    <Router>
+    <>
       <ScrollToTop />
       <Layout>
         <Routes>
@@ -42,6 +45,14 @@ function App() {
           <Route path="/sitemap" element={<Sitemap />} />
         </Routes>
       </Layout>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }

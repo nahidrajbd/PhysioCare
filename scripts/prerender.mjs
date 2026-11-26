@@ -1,10 +1,18 @@
 // Post-build SEO pass for physiocarebdplus.com (Vite + React Router SPA on
-// Cloudflare Pages). Runs after `vite build`:
-//   1. For every public route, writes dist/<route>/index.html as a copy of
-//      the built app shell with that route's own title, meta description,
-//      self-canonical and OG/Twitter URL, title and description, so the raw
-//      HTML of each route is unique and indexable. The homepage keeps the
-//      meta already present in index.html and is only verified.
+// Cloudflare Pages). Runs after `vite build` and the SSR build
+// (`vite build --ssr src/entry-server.jsx --outDir dist-server`):
+//   1. For every public route, writes a FLAT dist/<route>.html file (the
+//      homepage is dist/index.html) with that route's own title, meta
+//      description, self-canonical and OG/Twitter URL, title and
+//      description, plus the route's real rendered page content inside
+//      #root, so the raw HTML is unique, indexable and readable by
+//      crawlers that do not run JavaScript. Flat files matter:
+//      Cloudflare Pages serves dist/<route>.html at /<route> with a
+//      200, while a dist/<route>/index.html directory makes /<route>
+//      308-redirect to /<route>/, which conflicts with the slash-free
+//      canonicals and caused Search Console redirect and duplicate
+//      canonical notices. The homepage keeps the meta already present
+//      in index.html and is only verified.
 //   2. Writes dist/robots.txt and dist/sitemap.xml covering all public
 //      routes on the canonical www host.
 //   3. Writes dist/404.html, a standalone not-found page. Cloudflare Pages
@@ -20,10 +28,12 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+const { render } = await import("../dist-server/entry-server.js");
+
 const rootDir = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const distDir = path.join(rootDir, "dist");
 const SITE = "https://www.physiocarebdplus.com";
-const LASTMOD = "2026-11-22";
+const LASTMOD = new Date().toISOString().slice(0, 10);
 
 const ROUTES = [
   {
@@ -169,11 +179,19 @@ if (!shell.includes('"@type": "Organization"') || !shell.includes('"@type": "Sto
 console.log("prerender: homepage meta verified");
 
 for (const route of ROUTES) {
-  if (route.path === "/") continue;
-  const outDir = path.join(distDir, route.path.slice(1));
-  fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(path.join(outDir, "index.html"), applyRouteMeta(shell, route));
-  console.log(`prerender: wrote ${route.path}/index.html`);
+  const withMeta = route.path === "/" ? shell : applyRouteMeta(shell, route);
+  const content = render(route.path);
+  if (!content || content.length < 200) {
+    throw new Error(`prerender: rendered content too short for ${route.path}`);
+  }
+  const html = withMeta.replace('<div id="root"></div>', `<div id="root">${content}</div>`);
+  if (html === withMeta) {
+    throw new Error(`prerender: could not inject rendered content for ${route.path}`);
+  }
+  const outFile =
+    route.path === "/" ? indexPath : path.join(distDir, `${route.path.slice(1)}.html`);
+  fs.writeFileSync(outFile, html);
+  console.log(`prerender: wrote ${route.path} (${html.length} bytes, content rendered)`);
 }
 
 // --- 2. robots.txt + sitemap.xml ---------------------------------------------

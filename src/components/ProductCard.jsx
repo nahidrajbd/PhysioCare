@@ -13,7 +13,7 @@ const ProductCard = ({ product, hideAction }) => {
     >
       <div className="card-image">
         {product.image ? (
-          <img src={product.image} alt={product.name} />
+          <img src={product.image} alt={product.name} loading="lazy" />
         ) : (
           <div className="placeholder-image">
             <span>Image Coming Soon</span>
@@ -24,7 +24,7 @@ const ProductCard = ({ product, hideAction }) => {
         <h3 className="card-title">{product.name}</h3>
         <p className="card-desc">{product.description}</p>
         {!hideAction && (
-          <a href="https://wa.me/8801818758882" target="_blank" rel="noopener noreferrer" className="card-link">
+          <a href={`https://wa.me/8801818758882?text=${encodeURIComponent(`Hello PhysioCare BD, I am interested in the ${product.name}. Please share the price and details.`)}`} target="_blank" rel="noopener noreferrer" className="card-link">
             Inquire Now <ArrowRight size={16} />
           </a>
         )}

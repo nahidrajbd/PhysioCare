@@ -175,7 +175,7 @@ const Footer = () => {
           <ul className="footer-contact">
             <li><Mail size={16} /> <a href="mailto:sales@physiocarebdplus.com" className="contact-link">sales@physiocarebdplus.com</a></li>
             <li><Phone size={16} /> +8801818758882</li>
-            <li><MapPin size={16} /> Dhaka, Bangladesh</li>
+            <li><MapPin size={16} /> Sector 7, Uttara, Dhaka-1230, Bangladesh</li>
           </ul>
           <div className="social-links">
             <a href="https://www.facebook.com/physiocarebdplus/" target="_blank" rel="noopener noreferrer"><Facebook size={20} /></a>
