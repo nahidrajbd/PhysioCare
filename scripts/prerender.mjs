@@ -214,6 +214,8 @@ for (const route of ALL_ROUTES) {
   let html = withMeta.replace('<div id="root"></div>', `<div id="root">${content}</div>`);
   const extras = [];
   const pageUrl = route.path === "/" ? `${SITE}/` : `${SITE}${route.path}`;
+  const categoryNameById = {};
+  for (const c of categories) for (const id of c.productIds) if (!(id in categoryNameById)) categoryNameById[id] = c.name;
   const webPage = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -241,11 +243,16 @@ for (const route of ALL_ROUTES) {
           ],
     });
   }
+  const mainEntities = [];
+  if (route.path === "/" || route.path === "/products") mainEntities.push({ "@id": `${pageUrl}#faq` });
+  if (route.path === "/products" || route.category) mainEntities.push({ "@id": `${pageUrl}#itemlist` });
+  if (mainEntities.length) webPage.mainEntity = mainEntities;
   extras.push(webPage);
   if (route.path === "/") {
     extras.push({
       "@context": "https://schema.org",
       "@type": "FAQPage",
+      "@id": `${pageUrl}#faq`,
       mainEntity: faqs.map((faq) => ({
         "@type": "Question",
         name: faq.question,
@@ -257,6 +264,7 @@ for (const route of ALL_ROUTES) {
     extras.push({
       "@context": "https://schema.org",
       "@type": "FAQPage",
+      "@id": `${pageUrl}#faq`,
       mainEntity: productFaqs.map((faq) => ({
         "@type": "Question",
         name: faq.question,
@@ -266,6 +274,7 @@ for (const route of ALL_ROUTES) {
     extras.push({
       "@context": "https://schema.org",
       "@type": "ItemList",
+      "@id": `${pageUrl}#itemlist`,
       name: "Physiotherapy Machines and Equipment",
       numberOfItems: productList.length,
       itemListElement: productList.map((product, index) => ({
@@ -277,12 +286,15 @@ for (const route of ALL_ROUTES) {
           description: product.description,
           image: product.image ? `${SITE}${product.image}` : undefined,
           brand: { "@type": "Brand", name: "PhysioCare BD Plus" },
+          category: categoryNameById[product.id],
           ...(product.price
             ? {
                 offers: {
                   "@type": "Offer",
                   priceCurrency: "BDT",
                   price: product.price,
+                  itemCondition: "https://schema.org/NewCondition",
+                  seller: { "@id": `${SITE}/#store` },
                   url: `${SITE}/products`,
                 },
               }
@@ -297,6 +309,7 @@ for (const route of ALL_ROUTES) {
     extras.push({
       "@context": "https://schema.org",
       "@type": "ItemList",
+      "@id": `${pageUrl}#itemlist`,
       name: category.name,
       numberOfItems: items.length,
       itemListElement: items.map((product, index) => ({
@@ -308,12 +321,15 @@ for (const route of ALL_ROUTES) {
           description: product.description,
           image: product.image ? `${SITE}${product.image}` : undefined,
           brand: { "@type": "Brand", name: "PhysioCare BD Plus" },
+          category: categoryNameById[product.id],
           ...(product.price
             ? {
                 offers: {
                   "@type": "Offer",
                   priceCurrency: "BDT",
                   price: product.price,
+                  itemCondition: "https://schema.org/NewCondition",
+                  seller: { "@id": `${SITE}/#store` },
                   url: `${SITE}/products`,
                 },
               }

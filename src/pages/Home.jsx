@@ -86,7 +86,7 @@ const Home = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <img src="/banner.png" alt="Physiotherapy and rehabilitation equipment supplied by PhysioCare BD in Bangladesh" className="hero-banner-image" />
+            <img src="/banner.png" alt="Physiotherapy and rehabilitation equipment supplied by PhysioCare BD in Bangladesh" className="hero-banner-image" width="1344" height="768" />
           </motion.div>
         </div>
       </section>

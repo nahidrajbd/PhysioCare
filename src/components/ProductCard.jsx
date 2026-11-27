@@ -13,7 +13,7 @@ const ProductCard = ({ product, hideAction }) => {
     >
       <div className="card-image">
         {product.image ? (
-          <img src={product.image} alt={product.name} loading="lazy" />
+          <img src={product.image} alt={product.name} loading="lazy" width="800" height="800" />
         ) : (
           <div className="placeholder-image">
             <span>Image Coming Soon</span>
