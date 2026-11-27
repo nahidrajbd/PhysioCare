@@ -515,6 +515,11 @@ const Products = () => {
                             <a href="/return-policy">return policy</a>, or{" "}
                             <a href="/contact">contact us</a> for help choosing the right equipment.
                         </p>
+                        <p>
+                            Physiotherapy equipment should be selected and used under the guidance of a
+                            qualified physiotherapist or medical professional. Please read our{" "}
+                            <a href="/disclaimer">disclaimer</a> before ordering.
+                        </p>
                     </div>
                     <div className="products-grid">
                         {products.map(product => (

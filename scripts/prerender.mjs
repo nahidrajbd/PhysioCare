@@ -196,17 +196,29 @@ for (const route of ROUTES) {
   }
   let html = withMeta.replace('<div id="root"></div>', `<div id="root">${content}</div>`);
   const extras = [];
+  const pageUrl = route.path === "/" ? `${SITE}/` : `${SITE}${route.path}`;
+  const webPage = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: route.title,
+    isPartOf: { "@id": `${SITE}/#website` },
+    inLanguage: "en",
+  };
   if (route.path !== "/") {
-    const url = `${SITE}${route.path}`;
+    webPage.breadcrumb = { "@id": `${pageUrl}#breadcrumb` };
     extras.push({
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
+      "@id": `${pageUrl}#breadcrumb`,
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
-        { "@type": "ListItem", position: 2, name: route.crumb, item: url },
+        { "@type": "ListItem", position: 2, name: route.crumb, item: pageUrl },
       ],
     });
   }
+  extras.push(webPage);
   if (route.path === "/") {
     extras.push({
       "@context": "https://schema.org",
@@ -232,7 +244,7 @@ for (const route of ROUTES) {
           name: product.name,
           description: product.description,
           image: product.image ? `${SITE}${product.image}` : undefined,
-          brand: { "@type": "Brand", name: "PhysioCare BD" },
+          brand: { "@type": "Brand", name: "PhysioCare BD Plus" },
         },
       })),
     });
@@ -276,6 +288,20 @@ ${urls}
 `;
 fs.writeFileSync(path.join(distDir, "sitemap.xml"), sitemap);
 console.log("prerender: wrote robots.txt and sitemap.xml");
+
+// --- 2b. llms.txt enrichment ---------------------------------------------------
+// Append the homepage FAQ answers and the full product name list to the
+// llms.txt copied from public/, generated from the same data the site
+// renders (src/data/faq.js and the products list), so it cannot drift.
+const llmsPath = path.join(distDir, "llms.txt");
+let llms = fs.readFileSync(llmsPath, "utf8");
+if (!llms.includes("## Frequently asked questions")) {
+  const faqSection = faqs.map((faq) => `### ${faq.question}\n${faq.answer}`).join("\n\n");
+  const productSection = productList.map((product) => `- ${product.name}`).join("\n");
+  llms = `${llms.trim()}\n\n## Frequently asked questions\n\n${faqSection}\n\n## Products (full list, details on the Products page)\n\n${productSection}\n`;
+  fs.writeFileSync(llmsPath, llms);
+  console.log("prerender: enriched llms.txt with FAQ answers and product list");
+}
 
 // --- 3. Standalone 404 page ----------------------------------------------------
 const notFound = `<!DOCTYPE html>

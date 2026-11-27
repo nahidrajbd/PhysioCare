@@ -68,7 +68,7 @@ const Home = () => {
               <span className="text-highlight">Equipment Solutions</span>
             </h1>
             <p className="hero-subtitle">
-              PhysioCare BD is Bangladesh's premier supplier of medical-grade rehabilitation and physiotherapy equipment. trusted by clinics and professionals.
+              PhysioCare BD supplies medical-grade rehabilitation and physiotherapy equipment to hospitals, clinics and home users across Bangladesh.
             </p>
             <div className="hero-buttons">
               <Link to="/products" className="btn btn-primary">
@@ -157,7 +157,7 @@ const Home = () => {
         <div className="container">
           <div className="section-header text-center">
             <h2 className="section-title">Featured Products</h2>
-            <p className="section-subtitle">Top rated physiotherapy equipment for clinics and home use.</p>
+            <p className="section-subtitle">Popular physiotherapy equipment for clinics and home use.</p>
           </div>
           <div className="featured-grid">
             {featuredProducts.map(product => (
@@ -192,7 +192,7 @@ const Home = () => {
       <section className="cta-section">
         <div className="container cta-container">
           <h2>Ready to Upgrade Your Clinic?</h2>
-          <p>Get the best physiotherapy equipment in Bangladesh. Contact us today for a quote.</p>
+          <p>Get quality physiotherapy equipment for your clinic or home. Contact us today for a quote.</p>
           <a href="https://wa.me/8801818758882" target="_blank" rel="noopener noreferrer" className="btn btn-white">Contact Sales</a>
         </div>
       </section>

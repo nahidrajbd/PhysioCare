@@ -7,13 +7,13 @@ const WhyChooseUs = () => {
       id: 1,
       icon: ShieldCheck,
       title: "Quality Tested Equipment",
-      description: "We never compromise on quality. All our products are sourced from certified manufacturers and undergo strict quality control checks before reaching you."
+      description: "We never compromise on quality. Every product is checked before it reaches you, so you can order with confidence."
     },
     {
       id: 2,
       icon: Truck,
       title: "Trusted Supplier in Bangladesh",
-      description: "With years of experience, we have built a reputation for reliability. We serve major hospitals and clinics across the country with timely deliveries."
+      description: "We supply hospitals, clinics and individual patients across Bangladesh, with timely delivery and a team you can reach easily."
     },
     {
       id: 3,

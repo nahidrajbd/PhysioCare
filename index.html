@@ -43,13 +43,18 @@
           "@type": "Organization",
           "@id": "https://www.physiocarebdplus.com/#organization",
           "name": "PhysioCare BD Plus",
+          "alternateName": "PhysioCare BD",
           "url": "https://www.physiocarebdplus.com/",
           "logo": "https://www.physiocarebdplus.com/favicon.png",
           "email": "sales@physiocarebdplus.com",
+          "telephone": "+8801818758882",
           "founder": {
             "@type": "Person",
+            "@id": "https://www.physiocarebdplus.com/#founder",
             "name": "Md. Kamruzzaman Sumon",
-            "jobTitle": "CEO & Founder"
+            "jobTitle": "CEO & Founder",
+            "image": "https://www.physiocarebdplus.com/assets/Kamruzzaman-Sumon-CcxCp9pU.png",
+            "worksFor": { "@id": "https://www.physiocarebdplus.com/#organization" }
           },
           "contactPoint": {
             "@type": "ContactPoint",
@@ -71,6 +76,7 @@
           "@id": "https://www.physiocarebdplus.com/#store",
           "name": "PhysioCare BD Plus",
           "url": "https://www.physiocarebdplus.com/",
+          "parentOrganization": { "@id": "https://www.physiocarebdplus.com/#organization" },
           "image": "https://www.physiocarebdplus.com/banner.png",
           "description": "Supplier of physiotherapy and rehabilitation equipment, including TENS and EMS machines, ultrasound therapy, shockwave, Tecar and RF devices, traction units, therapy beds and exercise equipment, to hospitals, clinics and individual patients across Bangladesh.",
           "email": "sales@physiocarebdplus.com",
@@ -96,13 +102,21 @@
           "areaServed": {
             "@type": "Country",
             "name": "Bangladesh"
-          }
+          },
+          "sameAs": [
+            "https://www.facebook.com/physiocarebdplus",
+            "https://www.instagram.com/physiocarebdplus",
+            "https://www.youtube.com/@PhysioCareBDPlus",
+            "https://www.tiktok.com/@physiocarebdplus",
+            "https://x.com/physiocarebd"
+          ]
         },
         {
           "@type": "WebSite",
           "@id": "https://www.physiocarebdplus.com/#website",
           "url": "https://www.physiocarebdplus.com/",
           "name": "PhysioCare BD Plus",
+          "inLanguage": "en",
           "publisher": {
             "@id": "https://www.physiocarebdplus.com/#organization"
           }
