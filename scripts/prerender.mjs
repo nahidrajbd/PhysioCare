@@ -245,6 +245,16 @@ for (const route of ROUTES) {
           description: product.description,
           image: product.image ? `${SITE}${product.image}` : undefined,
           brand: { "@type": "Brand", name: "PhysioCare BD Plus" },
+          ...(product.price
+            ? {
+                offers: {
+                  "@type": "Offer",
+                  priceCurrency: "BDT",
+                  price: product.price,
+                  url: `${SITE}/products`,
+                },
+              }
+            : {}),
         },
       })),
     });
@@ -297,7 +307,13 @@ const llmsPath = path.join(distDir, "llms.txt");
 let llms = fs.readFileSync(llmsPath, "utf8");
 if (!llms.includes("## Frequently asked questions")) {
   const faqSection = faqs.map((faq) => `### ${faq.question}\n${faq.answer}`).join("\n\n");
-  const productSection = productList.map((product) => `- ${product.name}`).join("\n");
+  const productSection = productList
+    .map((product) =>
+      product.price
+        ? `- ${product.name} - ${product.priceFrom ? "From " : ""}BDT ${product.price.toLocaleString("en-US")}`
+        : `- ${product.name} - Price on request`
+    )
+    .join("\n");
   llms = `${llms.trim()}\n\n## Frequently asked questions\n\n${faqSection}\n\n## Products (full list, details on the Products page)\n\n${productSection}\n`;
   fs.writeFileSync(llmsPath, llms);
   console.log("prerender: enriched llms.txt with FAQ answers and product list");

@@ -9,6 +9,8 @@ export const productList = products.map((product) => ({
   name: product.name,
   description: product.description,
   image: product.image,
+  price: product.price,
+  priceFrom: product.priceFrom,
 }));
 
 // Used only at build time by scripts/prerender.mjs to write the real

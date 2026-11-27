@@ -23,8 +23,11 @@ const ProductCard = ({ product, hideAction }) => {
       <div className="card-body">
         <h3 className="card-title">{product.name}</h3>
         <p className="card-desc">{product.description}</p>
+        {product.price && (
+          <p className="card-price">{product.priceFrom ? "From " : ""}৳{product.price.toLocaleString("en-US")}</p>
+        )}
         {!hideAction && (
-          <a href={`https://wa.me/8801818758882?text=${encodeURIComponent(`Hello PhysioCare BD, I am interested in the ${product.name}. Please share the price and details.`)}`} target="_blank" rel="noopener noreferrer" className="card-link">
+          <a href={`https://wa.me/8801818758882?text=${encodeURIComponent(product.price ? `Hello PhysioCare BD, I am interested in the ${product.name} listed at ৳${product.price.toLocaleString("en-US")}. Please confirm availability.` : `Hello PhysioCare BD, I am interested in the ${product.name}. Please share the price and details.`)}`} target="_blank" rel="noopener noreferrer" className="card-link">
             Inquire Now <ArrowRight size={16} />
           </a>
         )}
@@ -77,6 +80,12 @@ const ProductCard = ({ product, hideAction }) => {
           margin-bottom: 1.5rem;
           font-size: 0.95rem;
           flex: 1;
+        }
+        .card-price {
+          font-size: 1.15rem;
+          font-weight: 700;
+          color: var(--text-dark);
+          margin-bottom: 1rem;
         }
         .card-link {
           display: inline-flex;

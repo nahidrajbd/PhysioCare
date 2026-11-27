@@ -75,72 +75,84 @@ export const products = [
     {
         id: 1,
         name: "Shockwave Therapy Machine",
+        price: 150000,
         description: "Professional ESWT shockwave unit for non-invasive treatment of plantar fasciitis, tendinopathy, and chronic musculoskeletal pain, enhancing blood flow and tissue regeneration.",
         image: imgShockwaveMain
     },
     {
         id: 2,
         name: "448kHz Radio Frequency (RF) Tecar Therapy Machine",
+        price: 45000,
         description: "Advanced Tecar therapy device using 448kHz radiofrequency to deliver deep tissue heating, accelerating cellular repair, reducing inflammation, and relieving chronic pain with precision.",
         image: img448khzRF
     },
     {
         id: 3,
         name: "4-Channel TENS (Transcutaneous Electrical Nerve Stimulation)",
+        price: 20000,
         description: "Four-channel TENS unit delivering targeted electrical pulses to block pain signals and stimulate endorphin release, ideal for chronic pain, post-surgical rehab, and neuromuscular conditions.",
         image: img4ChannelTens
     },
     {
         id: 4,
         name: "Electric Physiotherapy Therapy Beds",
+        price: 155000,
         description: "Electrically adjustable multi-section therapy beds with motorised height and tilt functions, designed for clinical treatment, patient comfort, and easy therapist access.",
         image: imgElectricBeds
     },
     {
         id: 5,
         name: "Taiwan Tens Machine EV‑906",
+        price: 4500,
         description: "High-performance TENS/EMS combination unit from Taiwan with multiple preset programs for pain management, muscle stimulation, and post-injury rehabilitation therapy.",
         image: imgTaiwanTens
     },
     {
         id: 6,
         name: "Shoulder Joint Anatomy Model",
+        price: 2700,
         description: "Anatomical shoulder model displaying humerus, scapula, clavicle, and key ligaments, ideal for explaining rotator cuff injuries, dislocations, and rehabilitation plans to patients.",
         image: imgShoulderJoint
     },
     {
         id: 7,
         name: "Acupuncture Pen",
+        price: 5000,
         description: "Electronic acupuncture pen that delivers gentle electrical stimulation to acupuncture points, offering a needle-free approach to pain relief, relaxation, and energy flow improvement.",
         image: imgAcupuncturePen
     },
     {
         id: 8,
         name: "Balance Ball 58cm",
+        price: 3500,
         description: "Anti-burst exercise ball used for core strengthening, balance training, posture improvement, and active sitting, suitable for physiotherapy, fitness, and rehabilitation programs.",
         image: imgBalanceBall
     },
     {
         id: 9,
         name: "Comfy TENS Physiotherapy Machine",
+        price: 4200,
         description: "User-friendly TENS unit designed for comfortable home and clinical use, offering adjustable stimulation modes to effectively manage acute and chronic pain conditions.",
         image: imgComfyTens
     },
     {
         id: 10,
         name: "Digital Cervical and Lumbar Traction Machine",
+        price: 25000,
         description: "Motorised traction device for cervical and lumbar spine decompression, reducing nerve compression, disc herniation pain, and stiffness through controlled mechanical stretching.",
         image: imgDigitalCervical
     },
     {
         id: 11,
         name: "Dumbbell 1kg",
+        price: 350,
         description: "Lightweight 1kg dumbbell with ergonomic grip, suitable for early-stage physiotherapy exercises, wrist strengthening, and upper limb rehabilitation protocols.",
         image: imgDumbbell1kg
     },
     {
         id: 12,
         name: "Dumbbell 3kg",
+        price: 1050,
         description: "Medium-weight 3kg dumbbell for progressive resistance training, muscle strengthening, and upper body rehabilitation during physiotherapy sessions.",
         image: imgDumbbell3kg
     },
@@ -153,126 +165,148 @@ export const products = [
     {
         id: 14,
         name: "Electric Physiotherapy Therapy Bed",
+        price: 11000,
         description: "Single-section electric therapy bed with motorised height adjustment, providing a stable and comfortable treatment surface for manual therapy and physiotherapy procedures.",
         image: imgElectricBedSingle
     },
     {
         id: 15,
         name: "Electronic Acupuncture Stimulator Machine",
+        price: 7000,
         description: "Multi-channel electronic acupuncture stimulator that applies precise electrical impulses to acupuncture and trigger points, promoting pain relief and muscle relaxation.",
         image: imgElectronicAcupuncture
     },
     {
         id: 16,
         name: "Evetor EFIT-533F Exercise Bike",
+        price: 13500,
         description: "Compact stationary exercise bike with adjustable resistance, designed for cardiovascular conditioning, lower limb rehabilitation, and endurance training in clinical and home settings.",
         image: imgEvetorBike
     },
     {
         id: 17,
         name: "Exercise Resistance Band (Sports Band)",
+        price: 1000,
         description: "Elastic resistance band ideal for strength training, stretching, and rehabilitation exercises, helping improve muscle strength, flexibility, and joint stability for all fitness levels.",
         image: imgExerciseBand
     },
     {
         id: 18,
         name: "Foldable Physiotherapy Exercise Bed",
+        price: 14000,
         description: "Space-saving treatment bed designed for clinics and home visits, offering a sturdy and comfortable surface for manual therapy, exercise, and patient assessment.",
         image: imgFoldableBed
     },
     {
         id: 19,
         name: "Folding Pedal Exerciser",
+        price: 2700,
         description: "Compact folding pedal exerciser for seated upper and lower limb cycling, improving circulation, joint mobility, and muscle strength in elderly and post-stroke patients.",
         image: imgFoldingPedal
     },
     {
         id: 20,
         name: "Full Spine Anatomical Model",
+        price: 5000,
         description: "Life-size full spine model showing vertebrae, discs, and pelvis, perfect for teaching posture, spinal disorders, and treatment plans to patients and students.",
         image: imgFullSpine
     },
     {
         id: 21,
         name: "Hand Joint Model",
+        price: 2200,
         description: "Detailed anatomical hand model showing bones, joints, and ligaments, ideal for patient education on hand injuries, arthritis, and post-surgical rehabilitation planning.",
         image: imgHandJoint
     },
     {
         id: 22,
         name: "Hydraulic Home Fitness Stepper with Handle",
+        price: 7500,
         description: "Hydraulic mini stepper with adjustable resistance and stabilising handle bar, providing low-impact cardiovascular and lower limb strengthening workouts for home use.",
         image: imgHydraulicStepper
     },
     {
         id: 23,
         name: "Infrared Heat Lamp with Controller",
+        price: 3500,
         description: "Infrared heat lamp with adjustable controller, delivering focused therapeutic warmth to relieve muscle tension, joint pain, and improve local circulation.",
         image: imgInfraredController
     },
     {
         id: 24,
         name: "Infrared Stand 275W with Timer & Regulator",
+        price: 5500,
         description: "Height-adjustable infrared stand with 275-watt bulb, built-in timer, and intensity regulator, providing controlled heat therapy for pain relief and muscle relaxation.",
         image: imgInfraredStand275
     },
     {
         id: 25,
         name: "Kinesiology Sports Tape",
+        price: 900,
         description: "Elastic kinesiology tape that supports muscles and joints without limiting movement, helps reduce pain, swelling, and speeds recovery during sports and daily activities.",
         image: imgKinesiologyTape
     },
     {
         id: 26,
         name: "Knee Joint Anatomy Model",
+        price: 1800,
         description: "Detailed knee joint model showing bones, ligaments, and cartilage, ideal for explaining injuries like ACL tears, osteoarthritis, and post-surgery rehab protocols.",
         image: imgKneeJoint
     },
     {
         id: 27,
         name: "LHC Brand Digital Interferential Therapy Machine",
+        price: 70000,
         description: "LHC digital interferential therapy unit that uses medium-frequency alternating currents to penetrate deep tissues, relieving pain and reducing muscle spasm effectively.",
         image: imgLHCInterferential
     },
     {
         id: 28,
         name: "LHC-101 TENS + MS Combination Physiotherapy Machine",
+        price: 7500,
         description: "Combination TENS and muscle stimulation device from LHC, offering dual-therapy capability for simultaneous pain relief and motor point stimulation in one compact unit.",
         image: imgLHCTensMs
     },
     {
         id: 29,
         name: "Manual Exercise Bed (SS & MS Frame)",
+        price: 8500,
         description: "Durable manual exercise bed made with stainless steel and mild steel, designed for therapeutic exercises, stretching, and patient positioning in physiotherapy settings.",
         image: imgManualBed
     },
     {
         id: 30,
         name: "Massage Gun",
+        price: 1050,
+        priceFrom: true,
         description: "High-frequency percussion massage gun with multiple interchangeable heads, delivering deep tissue vibration therapy to relieve soreness, improve recovery, and reduce muscle stiffness.",
         image: imgMassageGun
     },
     {
         id: 31,
         name: "Mini Human Skeleton Model",
+        price: 1800,
         description: "Portable skeleton model with key bones and joints, excellent for basic anatomical teaching, clinic demonstrations, and patient education in physiotherapy practice.",
         image: imgMiniSkeleton
     },
     {
         id: 32,
         name: "Mini Shockwave Therapy Machine",
+        price: 25000,
         description: "Compact extracorporeal shockwave device used to relieve chronic muscle and tendon pain, promote tissue healing, and support faster recovery in sports and orthopaedic rehab.",
         image: imgMiniShockwave
     },
     {
         id: 33,
         name: "Mini T.E.N.S. Two Channel Physiotherapy Machine",
+        price: 5500,
         description: "Portable dual-channel TENS unit for on-the-go pain relief, featuring adjustable intensity settings and multiple waveforms suitable for both acute and chronic pain management.",
         image: imgMiniTens
     },
     {
         id: 34,
         name: "Muscle Stimulator-Dt (Model LNC-225)",
+        price: 20000,
         description: "LNC-225 muscle stimulator providing targeted electrical stimulation for muscle re-education, spasm reduction, and strengthening in post-injury and neurological rehabilitation.",
         image: imgMuscleStimulator
     },
@@ -285,6 +319,7 @@ export const products = [
     {
         id: 36,
         name: "Non-Luminous Infrared (IRR) Small Size",
+        price: 7000,
         description: "Compact non-luminous infrared lamp for targeted heat therapy, suitable for small joint treatment, home use, and localised pain relief in physiotherapy clinics.",
         image: imgIRRSmall
     },
@@ -309,36 +344,42 @@ export const products = [
     {
         id: 40,
         name: "Robotic Hand Exercise Trainer",
+        price: 10000,
         description: "Rehabilitation robotic hand device assisting active and passive finger and hand movements, helping patients regain strength, coordination, and functional use after stroke or nerve injury.",
         image: imgRoboticHand
     },
     {
         id: 41,
         name: "SONOPOWER-003 Digital Ultrasonic Therapy Machine",
+        price: 25500,
         description: "Digital ultrasound therapy machine delivering precise therapeutic ultrasound for tissue heating, pain relief, and soft tissue healing at 1MHz frequency.",
         image: imgSonopowerDig003
     },
     {
         id: 42,
         name: "SONOPOWER-004 Digital Ultrasonic Therapy Machine",
+        price: 35000,
         description: "Advanced digital ultrasound therapy device with dual frequency modes, offering enhanced deep tissue penetration for faster healing and effective pain management.",
         image: imgSonopowerDig004
     },
     {
         id: 43,
         name: "Shockwave Therapy Machine (Alternate Model)",
+        price: 150000,
         description: "Alternate ESWT shockwave system for non-invasive musculoskeletal pain treatment, ideal for calcific tendinitis, heel spur, and chronic soft tissue disorders.",
         image: imgShockwaveAlt
     },
     {
         id: 44,
         name: "Shortwave Diathermy Therapy Machine",
+        price: 16500,
         description: "Shortwave therapy device delivering deep heat to muscles and joints, used to reduce pain, stiffness, and muscle spasm in physiotherapy and rehabilitation clinics.",
         image: imgShortwaveDiathermy
     },
     {
         id: 45,
         name: "Shortwave Diathermy (SWD) Bulb 250 and 500 Watt",
+        price: 4000,
         description: "Replacement SWD bulbs available in 250W and 500W capacities, compatible with standard shortwave diathermy machines for continued deep heat therapy sessions.",
         image: imgShortwaveBulb
     },
@@ -351,18 +392,21 @@ export const products = [
     {
         id: 47,
         name: "Sonopower Therapy 1 MHz",
+        price: 35000,
         description: "1MHz therapeutic ultrasound device for targeted deep tissue treatment, improving blood flow, reducing scar tissue, and accelerating musculoskeletal healing.",
         image: imgSonopower1mz
     },
     {
         id: 48,
         name: "Sonopower Therapy 1 and 3 MHz",
+        price: 55000,
         description: "Dual-frequency ultrasound therapy machine supporting both 1MHz and 3MHz modes, offering versatile depth control for treating superficial and deep tissue conditions.",
         image: imgSonopower13mz
     },
     {
         id: 49,
         name: "Spiky Tactile Balance Cushion",
+        price: 1000,
         description: "Textured balance cushion with sensory spikes for proprioception training, core stability, and tactile stimulation, suitable for rehabilitation and balance improvement exercises.",
         image: imgSpikyCushion
     },
@@ -375,12 +419,14 @@ export const products = [
     {
         id: 51,
         name: "Stimpower",
+        price: 35000,
         description: "Versatile electrical stimulation unit combining TENS, EMS, and interferential current modes for comprehensive pain management and neuromuscular rehabilitation in clinic settings.",
         image: imgStimpower
     },
     {
         id: 52,
         name: "TENS Machine Pin Pad",
+        price: 120,
         description: "Replacement pin pad electrode set for TENS machines, ensuring secure and hygienic electrode connections for consistent electrical stimulation during physiotherapy treatments.",
         image: imgTansPinPad
     },
@@ -393,6 +439,8 @@ export const products = [
     {
         id: 54,
         name: "Weight Cuff (Ankle/Wrist Weight)",
+        price: 250,
+        priceFrom: true,
         description: "Adjustable weight cuff for ankle or wrist, used to add resistance during strengthening and gait training exercises, improving muscle power and endurance in rehabilitation programs.",
         image: imgWeightCuff
     },
@@ -405,84 +453,99 @@ export const products = [
     {
         id: 56,
         name: "Anatomical Human Skeleton with Nerve Model",
+        price: 7000,
         description: "Full-size human skeleton model with highlighted nerve pathways, ideal for teaching neuroanatomy, explaining nerve compression syndromes, and demonstrating rehabilitation strategies.",
         image: imgAnatomicalSkeleton
     },
     {
         id: 57,
         name: "Ankle Joint Model",
+        price: 1800,
         description: "Detailed ankle joint anatomical model displaying bones, ligaments, and tendons, ideal for explaining ankle sprains, fractures, and rehabilitation procedures to patients.",
         image: imgAnkleJoint
     },
     {
         id: 58,
         name: "Ballistic Extracorporeal Shock Wave Therapy (ESWT) Machine",
+        price: 250000,
         description: "Ballistic ESWT machine delivering high-energy shockwaves to break down calcifications, stimulate tissue regeneration, and treat chronic tendinopathies and plantar fasciitis.",
         image: imgBallisticESWT
     },
     {
         id: 59,
         name: "Cervical Spine Anatomical Models",
+        price: 3200,
         description: "Detailed cervical spine model with individual vertebrae, intervertebral discs, and nerve roots, essential for explaining cervical disc herniation and nerve compression to patients.",
         image: imgCervicalSpine
     },
     {
         id: 60,
         name: "Dumbbell 2kg",
+        price: 700,
         description: "Lightweight 2kg dumbbell suitable for progressive resistance exercises, early-stage upper limb rehabilitation, and strength conditioning under physiotherapy supervision.",
         image: imgDumbbell2kg
     },
     {
         id: 61,
         name: "Dumbbell 5kg",
+        price: 1750,
         description: "5kg dumbbell for intermediate resistance training and upper limb strengthening, suitable for progressive rehabilitation and functional fitness programs.",
         image: imgDumbbell5kg
     },
     {
         id: 62,
         name: "Hernia Discal Model",
+        price: 2000,
         description: "Educational model demonstrating intervertebral disc herniation and nerve root compression, helping physiotherapists explain spinal pathology and treatment rationale to patients.",
         image: imgHerniaDiscal
     },
     {
         id: 63,
         name: "Infrared Heat Therapy Lamp with Stand 275W",
+        price: 6500,
+        priceFrom: true,
         description: "275-watt infrared heat therapy lamp on adjustable stand, providing targeted deep heat treatment for muscle aches, joint pain, and improved local blood circulation.",
         image: imgInfraredLampStand
     },
     {
         id: 64,
         name: "Lumbar Spine Anatomy Model",
+        price: 2500,
         description: "Life-size lumbar spine model showing vertebrae, discs, and sacrum, perfect for patient education on lower back pain, disc disorders, and lumbar rehabilitation protocols.",
         image: imgLumbarSpine
     },
     {
         id: 65,
         name: "Patient Examination Bed",
+        price: 11500,
         description: "Sturdy patient examination bed with easy-clean upholstery and stable frame, providing a safe and comfortable surface for clinical assessments and physiotherapy examinations.",
         image: imgPatientBed
     },
     {
         id: 66,
         name: "Pelvis Spine Model",
+        price: 2800,
         description: "Anatomical pelvis and lumbar spine model illustrating sacroiliac joints, disc levels, and pelvic alignment, essential for explaining posture disorders and low back conditions.",
         image: imgPelvisSpine
     },
     {
         id: 67,
         name: "Peanut Ball",
+        price: 1200,
         description: "Peanut-shaped exercise ball providing enhanced stability for Pilates, yoga, and physiotherapy exercises, reducing rolling tendency for improved balance and core strengthening.",
         image: imgPenutBall
     },
     {
         id: 68,
         name: "Pulse Cold Compression Therapy Machine",
+        price: 65000,
         description: "Integrated cold compression therapy system combining adjustable pneumatic compression with cryotherapy to control swelling, reduce pain, and accelerate post-injury or post-surgical recovery.",
         image: imgPulseCold
     },
     {
         id: 69,
         name: "rTMS Brain Therapy Machine",
+        price: 65000,
         description: "Repetitive Transcranial Magnetic Stimulation system delivering non-invasive magnetic pulses to targeted brain areas, supporting treatment of neurological and psychiatric conditions under medical supervision.",
         image: imgRTMS
     }
@@ -509,8 +572,9 @@ const Products = () => {
                             lamps, therapy beds, exercise equipment and anatomy models.
                         </p>
                         <p>
-                            To ask about a product, tap Inquire Now on the product and our sales team will
-                            confirm the price and availability on WhatsApp. See our{" "}
+                            Prices are shown with each product and were updated in November 2026. To order
+                            or ask about a product, tap Inquire Now and our sales team will confirm
+                            availability on WhatsApp. See our{" "}
                             <a href="/shipping-info">shipping information</a> and{" "}
                             <a href="/return-policy">return policy</a>, or{" "}
                             <a href="/contact">contact us</a> for help choosing the right equipment.
@@ -527,6 +591,10 @@ const Products = () => {
                         ))}
                     </div>
 
+                    <div className="catalog-note">
+                        <p>Buying for a clinic, hospital or in bulk?</p>
+                        <p className="sub-note">Call us on +8801818758882 or message on WhatsApp for a special business price.</p>
+                    </div>
                     <div className="catalog-note">
                         <p>Don't see what you're looking for?</p>
                         <p className="sub-note">We have a vast inventory. Contact us for specific requirements.</p>
