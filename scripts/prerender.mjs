@@ -77,7 +77,7 @@ const ROUTES = [
     priority: "0.8",
     title: "Contact PhysioCare BD | Physiotherapy Equipment Supplier, Dhaka",
     description:
-      "Contact PhysioCare BD in Uttara, Dhaka by WhatsApp, phone or email for physiotherapy equipment prices and enquiries anywhere in Bangladesh.",
+      "Contact PhysioCare BD at BMA Bhaban, Topkhana Road, Dhaka by WhatsApp, phone or email for physiotherapy equipment prices and enquiries in Bangladesh.",
   },
   {
     path: "/privacy-policy",

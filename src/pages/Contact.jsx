@@ -59,7 +59,7 @@ const Contact = () => {
               <div className="icon-box"><MapPin /></div>
               <div>
                 <h3>Office Address</h3>
-                <p>Sector 7, Uttara, Dhaka-1230, Bangladesh</p>
+                <p>BMA Bhaban, 15/2 Topkhana Road, Dhaka-1000, Bangladesh</p>
               </div>
             </div>
 
