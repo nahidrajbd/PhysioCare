@@ -150,6 +150,38 @@ import imgPdf110 from '../assets/Products/110 - CPR Model.webp';
 import imgPdf128 from '../assets/Products/128 - Laser Therapy Unit.webp';
 import imgPdf131 from '../assets/Products/131 - LHC-107 Digital Ultrasonic Therapy Machine.webp';
 import imgPdf132 from '../assets/Products/132 - Microprocessor- Based 4-Channel TENS Automode + Ultrasonic Combination Therapy Machine.webp';
+import imgSkel1 from '../assets/Products/001 - Dental Model Practice Typodont Teeth Model.webp';
+import imgSkel2 from '../assets/Products/002 - Evodent Ideal Dental Model, For Patient Education – Full Mouth Demonstration.webp';
+import imgSkel3 from '../assets/Products/003 - Baby Teeth Model.webp';
+import imgSkel4 from '../assets/Products/004 - A-105186, Urinary System Axis Scientific.webp';
+import imgSkel5 from '../assets/Products/005 - anatomical model of human liver.webp';
+import imgSkel6 from '../assets/Products/006 - Human Duodenum Model.webp';
+import imgSkel7 from '../assets/Products/007 - Eye Model - Eye Model, Anatomy Model.webp';
+import imgSkel8 from '../assets/Products/008 - Ear Anatomical Model.webp';
+import imgSkel9 from '../assets/Products/009 - Human Nasal Cavity,Oral Cavity,Throat and Pharynx Study Teaching Model,Normal.webp';
+import imgSkel10 from '../assets/Products/010 - Human knee joint model with knee ligaments.webp';
+import imgSkel11 from '../assets/Products/011 - Hand and wrist skeleton model.webp';
+import imgSkel12 from '../assets/Products/012 - Foot bone model.webp';
+import imgSkel13 from '../assets/Products/013 - Anatomical hip model Life-size.webp';
+import imgSkel14 from '../assets/Products/014 - Hand Joint Anatomical Skeleton Model Human Anatomy Study Tool.webp';
+import imgSkel15 from '../assets/Products/015 - Humon Foot Bone.webp';
+import imgSkel16 from '../assets/Products/016 - Life-Size Human Lumbar Vertebrae Anatomy Model.webp';
+import imgSkel17 from '../assets/Products/017 - Colorectal Lesion Model Human Colon Snake Large Intestine Pathological Diseases.webp';
+import imgSkel18 from '../assets/Products/018 - Lumbar Disc Model, Human Spine Pathological Lumbar Spine Model with Base, 3.webp';
+import imgSkel19 from '../assets/Products/019 - Human Digestive System Model Stomach Anatomy Large Intestine Cecum.webp';
+import imgSkel20 from '../assets/Products/020 - human teeth anatomical model.webp';
+import imgSkel21 from '../assets/Products/021 - Human Kidney Anatomical Model - Medical Anatomical Kidney Model - Human Organ.webp';
+import imgSkel22 from '../assets/Products/022 - Anatomy Model for Medical Education Human Stomach Model Gastric Anatomy Model.webp';
+import imgSkel23 from '../assets/Products/023 - Organ Model Human Organ Model Simulation Liver Organ Pathology Model Removable.webp';
+import imgSkel24 from '../assets/Products/024 - Uterine Model, Anatomical Scientific Model of Female Internal and External.webp';
+import imgSkel25 from '../assets/Products/025 - Nasal Cavity Throat Anatomy Model Simulation Oral Cavity Anatomical Model.webp';
+import imgSkel26 from '../assets/Products/026 - Human Pathological Lung Model Simulation Respiratory System Model Pathology.webp';
+import imgSkel27 from '../assets/Products/027 - Endodontic Study Model.webp';
+import imgSkel28 from '../assets/Products/028 - anatomical model of a human brain with pathologies.webp';
+import imgSkel29 from '../assets/Products/029 - Pelvic Model 5-Section Human Lumbar Spine with Pelvic Leg Bone Model PVC.webp';
+import imgSkel30 from '../assets/Products/030 - Human Uterus and Ovary Model, Female Reproductive Organ Model, Shows Uterus.webp';
+import imgSkel31 from '../assets/Products/031 - Human Female Pelvis Anatomical Model.webp';
+import imgSkel32 from '../assets/Products/032 - anatomical model of a human female pelvis during the 9th month of pregnancy.webp';
 
 export const products = [
     {
@@ -1157,6 +1189,228 @@ export const products = [
         name: "Microprocessor 4-Channel TENS + Ultrasonic Combination Therapy Machine",
         description: "Microprocessor-based 4-channel TENS automode combination therapy machine with 1 MHz ultrasonic therapy. Country of Origin: India.",
         image: imgPdf132
+    },
+    {
+        id: 147,
+        name: "Dental Model Practice Typodont Teeth Model",
+        price: 900,
+        description: "Dental practice typodont teeth model for dental training, demonstration and patient education.",
+        image: imgSkel1
+    },
+    {
+        id: 148,
+        name: "Evodent Ideal Dental Model",
+        price: 700,
+        description: "Full mouth dental demonstration model for patient education and dental practice explanation.",
+        image: imgSkel2
+    },
+    {
+        id: 149,
+        name: "Baby Teeth Model",
+        price: 1200,
+        description: "Baby teeth model showing the structure of children's teeth, for dental education and patient guidance.",
+        image: imgSkel3
+    },
+    {
+        id: 150,
+        name: "A-105186 Urinary System Model",
+        price: 1200,
+        description: "Anatomical model of the human urinary system (Axis Scientific A-105186) for medical study and patient education.",
+        image: imgSkel4
+    },
+    {
+        id: 151,
+        name: "Human Liver Anatomical Model",
+        price: 2100,
+        description: "Anatomical model of the human liver for medical study, training and patient education.",
+        image: imgSkel5
+    },
+    {
+        id: 152,
+        name: "Human Duodenum Model",
+        description: "Anatomical model of the human duodenum for medical study and digestive system education.",
+        image: imgSkel6
+    },
+    {
+        id: 153,
+        name: "Eye Anatomical Model",
+        price: 1500,
+        description: "Anatomical model of the human eye for medical study, training and patient education.",
+        image: imgSkel7
+    },
+    {
+        id: 154,
+        name: "Ear Anatomical Model",
+        description: "Anatomical model of the human ear for medical study, training and patient education.",
+        image: imgSkel8
+    },
+    {
+        id: 155,
+        name: "Human Nasal Cavity, Oral Cavity, Throat and Pharynx Model",
+        price: 2000,
+        description: "Study model of the human nasal cavity, oral cavity, throat and pharynx for medical teaching and patient education.",
+        image: imgSkel9
+    },
+    {
+        id: 156,
+        name: "Human Knee Joint Model with Ligaments",
+        price: 1200,
+        description: "Human knee joint model with ligaments, for physiotherapy study, training and patient education.",
+        image: imgSkel10
+    },
+    {
+        id: 157,
+        name: "Hand and Wrist Skeleton Model",
+        price: 1200,
+        description: "Skeleton model of the human hand and wrist for anatomy study and patient education.",
+        image: imgSkel11
+    },
+    {
+        id: 158,
+        name: "Foot Bone Model",
+        price: 1500,
+        description: "Model of the human foot bones for anatomy study, physiotherapy training and patient education.",
+        image: imgSkel12
+    },
+    {
+        id: 159,
+        name: "Anatomical Hip Model, Life-Size",
+        price: 1900,
+        description: "Life-size anatomical model of the human hip joint for study, training and patient education.",
+        image: imgSkel13
+    },
+    {
+        id: 160,
+        name: "Hand Joint Anatomical Skeleton Model",
+        price: 1200,
+        description: "Hand joint anatomical skeleton model for human anatomy study and patient education.",
+        image: imgSkel14
+    },
+    {
+        id: 161,
+        name: "Human Foot Bone Model",
+        price: 1200,
+        description: "Model of the human foot bones for anatomy study and patient education.",
+        image: imgSkel15
+    },
+    {
+        id: 162,
+        name: "Life-Size Human Lumbar Vertebrae Anatomy Model",
+        price: 1700,
+        description: "Life-size anatomy model of the human lumbar vertebrae for spine study and patient education.",
+        image: imgSkel16
+    },
+    {
+        id: 163,
+        name: "Colorectal Lesion Model",
+        price: 1700,
+        description: "Colorectal lesion model showing pathological diseases of the human colon and large intestine, for medical education.",
+        image: imgSkel17
+    },
+    {
+        id: 164,
+        name: "Pathological Lumbar Disc Model with Base",
+        price: 1000,
+        description: "Pathological lumbar disc model with base, showing the lumbar section of the human spine for study and patient education.",
+        image: imgSkel18
+    },
+    {
+        id: 165,
+        name: "Human Digestive System Model",
+        price: 2300,
+        description: "Human digestive system model showing the stomach, large intestine and cecum, for anatomy study and education.",
+        image: imgSkel19
+    },
+    {
+        id: 166,
+        name: "Human Teeth Anatomical Model",
+        price: 1800,
+        description: "Anatomical model of human teeth for dental study, training and patient education.",
+        image: imgSkel20
+    },
+    {
+        id: 167,
+        name: "Human Kidney Anatomical Model",
+        price: 1500,
+        description: "Anatomical model of the human kidney for medical study, training and patient education.",
+        image: imgSkel21
+    },
+    {
+        id: 168,
+        name: "Human Stomach Anatomy Model",
+        price: 2000,
+        description: "Human stomach anatomy model for medical education, study and patient guidance.",
+        image: imgSkel22
+    },
+    {
+        id: 169,
+        name: "Liver Organ Pathology Model, Removable",
+        price: 2200,
+        description: "Removable liver organ pathology model for medical study and patient education.",
+        image: imgSkel23
+    },
+    {
+        id: 170,
+        name: "Uterine Anatomical Model",
+        price: 1600,
+        description: "Anatomical model of the female internal and external reproductive organs (uterine model) for medical study and education.",
+        image: imgSkel24
+    },
+    {
+        id: 171,
+        name: "Nasal Cavity, Throat and Oral Cavity Anatomy Model",
+        price: 1300,
+        description: "Anatomical model of the nasal cavity, throat and oral cavity for medical study and patient education.",
+        image: imgSkel25
+    },
+    {
+        id: 172,
+        name: "Human Pathological Lung Model",
+        price: 1700,
+        description: "Human pathological lung model showing the respiratory system, for medical study and education.",
+        image: imgSkel26
+    },
+    {
+        id: 173,
+        name: "Endodontic Study Model",
+        price: 1600,
+        description: "Endodontic study model for dental training and tooth treatment demonstration.",
+        image: imgSkel27
+    },
+    {
+        id: 174,
+        name: "Human Brain Model with Pathologies",
+        price: 2800,
+        description: "Anatomical model of the human brain with pathologies, for medical study and patient education.",
+        image: imgSkel28
+    },
+    {
+        id: 175,
+        name: "Pelvic Model, 5-Section Lumbar Spine with Leg Bone",
+        price: 1600,
+        description: "5-section pelvic model with lumbar spine and pelvic leg bone, made of PVC, for anatomy study and education.",
+        image: imgSkel29
+    },
+    {
+        id: 176,
+        name: "Human Uterus and Ovary Model",
+        price: 1500,
+        description: "Human uterus and ovary model showing the female reproductive organs, for medical study and patient education.",
+        image: imgSkel30
+    },
+    {
+        id: 177,
+        name: "Human Female Pelvis Anatomical Model",
+        price: 1800,
+        description: "Anatomical model of the human female pelvis for medical study, training and patient education.",
+        image: imgSkel31
+    },
+    {
+        id: 178,
+        name: "Female Pelvis Model, 9th Month of Pregnancy",
+        price: 1700,
+        description: "Anatomical model of a human female pelvis during the 9th month of pregnancy, for medical study and midwifery education.",
+        image: imgSkel32
     }
 ];
 
