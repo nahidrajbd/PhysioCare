@@ -14,7 +14,7 @@ const About = () => {
     <div className="about-page">
       <div className="page-header">
         <div className="container">
-          <h1>About Us</h1>
+          <h1>About PhysioCare BD</h1>
           <p>Leading the way in physiotherapy solutions</p>
         </div>
       </div>

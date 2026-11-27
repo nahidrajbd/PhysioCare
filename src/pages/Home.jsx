@@ -2,6 +2,7 @@ import { ArrowRight, CheckCircle, ShieldCheck, Truck, Users, Zap, Activity, Hear
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import ProductCard from '../components/ProductCard';
+import { faqs } from '../data/faq';
 
 // Import featured product images
 import shockwaveImage from '../assets/Products/Shockwave Therapy Machine.jpg';
@@ -84,7 +85,7 @@ const Home = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <img src="/banner.png" alt="Physiotherapy Equipment Banner" className="hero-banner-image" />
+            <img src="/banner.png" alt="Physiotherapy and rehabilitation equipment supplied by PhysioCare BD in Bangladesh" className="hero-banner-image" />
           </motion.div>
         </div>
       </section>
@@ -165,6 +166,24 @@ const Home = () => {
           </div>
           <div className="text-center mt-8">
             <Link to="/products" className="btn btn-outline">View All Products</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="section bg-light">
+        <div className="container">
+          <div className="section-header text-center">
+            <h2 className="section-title">Frequently Asked Questions</h2>
+            <p className="section-subtitle">Ordering, delivery, prices and returns at PhysioCare BD.</p>
+          </div>
+          <div className="faq-list" style={{ maxWidth: '820px', margin: '0 auto' }}>
+            {faqs.map((faq, index) => (
+              <div key={index} className="faq-item" style={{ marginBottom: '1.75rem' }}>
+                <h3 style={{ marginBottom: '0.5rem', color: 'var(--text-dark)' }}>{faq.question}</h3>
+                <p style={{ color: 'var(--text-light)', lineHeight: 1.7 }}>{faq.answer}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

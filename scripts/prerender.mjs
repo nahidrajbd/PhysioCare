@@ -28,7 +28,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const { render } = await import("../dist-server/entry-server.js");
+const { render, faqs, productList } = await import("../dist-server/entry-server.js");
 
 const rootDir = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const distDir = path.join(rootDir, "dist");
@@ -45,38 +45,43 @@ const ROUTES = [
   },
   {
     path: "/about",
+    crumb: "About Us",
     changefreq: "monthly",
     priority: "0.8",
-    title: "About Us | PhysioCare BD Plus",
+    title: "About PhysioCare BD | Physiotherapy Equipment Supplier in Bangladesh",
     description:
-      "Learn about PhysioCare BD Plus, a supplier of physiotherapy and rehabilitation equipment to hospitals, clinics and individual patients across Bangladesh, founded by CEO Md. Kamruzzaman Sumon.",
+      "Learn about PhysioCare BD, a physiotherapy and rehabilitation equipment supplier in Bangladesh, founded by CEO Md. Kamruzzaman Sumon.",
   },
   {
     path: "/products",
+    crumb: "Products",
     changefreq: "weekly",
     priority: "0.9",
-    title: "Our Products | PhysioCare BD Plus",
+    title: "Physiotherapy Machines & Equipment in Bangladesh | PhysioCare BD",
     description:
-      "Browse physiotherapy and rehabilitation equipment from PhysioCare BD Plus, including TENS and EMS machines, ultrasound therapy machines, shockwave therapy machines, traction units, therapy beds and exercise equipment supplied across Bangladesh.",
+      "Browse TENS, ultrasound, shockwave, traction, therapy beds and rehabilitation equipment from PhysioCare BD, supplied to clinics across Bangladesh.",
   },
   {
     path: "/why-choose-us",
+    crumb: "Why Choose Us",
     changefreq: "monthly",
     priority: "0.7",
-    title: "Why Choose Us | PhysioCare BD Plus",
+    title: "Why Choose PhysioCare BD | Physiotherapy Equipment Supplier",
     description:
-      "Why hospitals, clinics and individual patients across Bangladesh choose PhysioCare BD Plus as their supplier of physiotherapy and rehabilitation equipment.",
+      "Quality tested physiotherapy equipment, nationwide delivery and professional support. Why hospitals and clinics in Bangladesh choose PhysioCare BD.",
   },
   {
     path: "/contact",
+    crumb: "Contact Us",
     changefreq: "monthly",
     priority: "0.8",
-    title: "Contact Us | PhysioCare BD Plus",
+    title: "Contact PhysioCare BD | Physiotherapy Equipment Supplier, Dhaka",
     description:
-      "Contact PhysioCare BD Plus by email at sales@physiocarebdplus.com or on WhatsApp for physiotherapy and rehabilitation equipment enquiries anywhere in Bangladesh.",
+      "Contact PhysioCare BD in Uttara, Dhaka by WhatsApp, phone or email for physiotherapy equipment prices and enquiries anywhere in Bangladesh.",
   },
   {
     path: "/privacy-policy",
+    crumb: "Privacy Policy",
     changefreq: "yearly",
     priority: "0.5",
     title: "Privacy Policy | PhysioCare BD Plus",
@@ -84,6 +89,7 @@ const ROUTES = [
   },
   {
     path: "/terms-and-conditions",
+    crumb: "Terms and Conditions",
     changefreq: "yearly",
     priority: "0.5",
     title: "Terms and Conditions | PhysioCare BD Plus",
@@ -91,6 +97,7 @@ const ROUTES = [
   },
   {
     path: "/disclaimer",
+    crumb: "Disclaimer",
     changefreq: "yearly",
     priority: "0.5",
     title: "Disclaimer | PhysioCare BD Plus",
@@ -98,6 +105,7 @@ const ROUTES = [
   },
   {
     path: "/shipping-info",
+    crumb: "Shipping Information",
     changefreq: "yearly",
     priority: "0.6",
     title: "Shipping Information | PhysioCare BD Plus",
@@ -106,6 +114,7 @@ const ROUTES = [
   },
   {
     path: "/return-policy",
+    crumb: "Return Policy",
     changefreq: "yearly",
     priority: "0.6",
     title: "Return Policy | PhysioCare BD Plus",
@@ -113,6 +122,7 @@ const ROUTES = [
   },
   {
     path: "/sitemap",
+    crumb: "Sitemap",
     changefreq: "yearly",
     priority: "0.3",
     title: "Sitemap | PhysioCare BD Plus",
@@ -184,7 +194,55 @@ for (const route of ROUTES) {
   if (!content || content.length < 200) {
     throw new Error(`prerender: rendered content too short for ${route.path}`);
   }
-  const html = withMeta.replace('<div id="root"></div>', `<div id="root">${content}</div>`);
+  let html = withMeta.replace('<div id="root"></div>', `<div id="root">${content}</div>`);
+  const extras = [];
+  if (route.path !== "/") {
+    const url = `${SITE}${route.path}`;
+    extras.push({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+        { "@type": "ListItem", position: 2, name: route.crumb, item: url },
+      ],
+    });
+  }
+  if (route.path === "/") {
+    extras.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    });
+  }
+  if (route.path === "/products") {
+    extras.push({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Physiotherapy Machines and Equipment",
+      numberOfItems: productList.length,
+      itemListElement: productList.map((product, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "Product",
+          name: product.name,
+          description: product.description,
+          image: product.image ? `${SITE}${product.image}` : undefined,
+          brand: { "@type": "Brand", name: "PhysioCare BD" },
+        },
+      })),
+    });
+  }
+  if (extras.length) {
+    const scripts = extras
+      .map((schema) => `  <script type="application/ld+json">${JSON.stringify(schema)}</script>`)
+      .join("\n");
+    html = html.replace("</head>", `${scripts}\n</head>`);
+  }
   if (html === withMeta) {
     throw new Error(`prerender: could not inject rendered content for ${route.path}`);
   }

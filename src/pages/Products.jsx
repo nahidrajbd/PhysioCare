@@ -71,7 +71,7 @@ import imgPenutBall from '../assets/Products/penut ball.jpg';
 import imgPulseCold from '../assets/Products/pulse cold compression therapy machine.jpg';
 import imgRTMS from '../assets/Products/rTMS Brain  Therapy Machine.jpg';
 
-const products = [
+export const products = [
     {
         id: 1,
         name: "Shockwave Therapy Machine",
@@ -493,13 +493,29 @@ const Products = () => {
         <div className="products-page">
             <div className="page-header">
                 <div className="container">
-                    <h1>Our Products</h1>
+                    <h1>Physiotherapy Machines and Equipment</h1>
                     <p>Explore our wide range of physiotherapy equipment</p>
                 </div>
             </div>
 
             <section className="section">
                 <div className="container">
+                    <div className="products-intro">
+                        <p>
+                            PhysioCare BD supplies physiotherapy machines and rehabilitation equipment to
+                            hospitals, clinics, physiotherapists and individual patients across Bangladesh.
+                            Our range covers electrotherapy machines such as TENS, EMS and interferential
+                            units, ultrasound and shockwave therapy machines, traction units, infrared
+                            lamps, therapy beds, exercise equipment and anatomy models.
+                        </p>
+                        <p>
+                            To ask about a product, tap Inquire Now on the product and our sales team will
+                            confirm the price and availability on WhatsApp. See our{" "}
+                            <a href="/shipping-info">shipping information</a> and{" "}
+                            <a href="/return-policy">return policy</a>, or{" "}
+                            <a href="/contact">contact us</a> for help choosing the right equipment.
+                        </p>
+                    </div>
                     <div className="products-grid">
                         {products.map(product => (
                             <ProductCard key={product.id} product={product} />
@@ -529,6 +545,14 @@ const Products = () => {
           color: var(--secondary);
           font-size: 1.2rem;
         }
+        .products-intro {
+          max-width: 820px;
+          margin: 0 auto 3rem;
+          color: var(--text-light);
+          line-height: 1.7;
+        }
+        .products-intro p { margin-bottom: 1rem; }
+        .products-intro a { color: var(--primary-dark); font-weight: 600; }
         .products-grid {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
