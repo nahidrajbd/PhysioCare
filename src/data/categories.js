@@ -114,19 +114,18 @@ export const categories = [
   },
   {
     "slug": "traction-machines",
-    "name": "Traction Machines and Beds",
+    "name": "Traction Machines",
     "title": "Traction Machine Price in Bangladesh | PhysioCare BD",
-    "description": "Cervical and lumbar traction machines and traction beds in Bangladesh. Digital units from LHC, AUTOTRAC and Meditech, from BDT 16,500.",
+    "description": "Cervical and lumbar traction machines in Bangladesh. Digital units from LHC, AUTOTRAC and Meditech, from BDT 25,000.",
     "intro": [
-      "Traction therapy gently stretches the spine to relieve nerve compression, disc pain and stiffness. PhysioCare BD supplies digital cervical and lumbar traction machines from LHC, AUTOTRAC and Meditech India, along with traction beds, to hospitals, clinics and rehab centers across Bangladesh.",
-      "Prices start at BDT 16,500 for the traction bed and BDT 25,000 for the Digital Cervical and Lumbar Traction Machine, with auto traction units up to BDT 75,000. Hold time, pulling power and safety features differ by model, so contact us if you need help choosing."
+      "Traction therapy gently stretches the spine to relieve nerve compression, disc pain and stiffness. PhysioCare BD supplies digital cervical and lumbar traction machines from LHC, AUTOTRAC and Meditech India, to hospitals, clinics and rehab centers across Bangladesh.",
+      "Prices start at BDT 25,000 for the Digital Cervical and Lumbar Traction Machine, with auto traction units up to BDT 75,000. Hold time, pulling power and safety features differ by model, so contact us if you need help choosing."
     ],
     "productIds": [
       10,
       88,
       89,
-      92,
-      98
+      92
     ]
   },
   {
@@ -135,7 +134,7 @@ export const categories = [
     "title": "Physiotherapy Therapy Bed Price in Bangladesh | PhysioCare BD",
     "description": "Electric and manual physiotherapy therapy beds, examination beds, patient beds and clinic furniture in Bangladesh, supplied by PhysioCare BD.",
     "intro": [
-      "Every clinic setup starts with the right treatment surface. PhysioCare BD supplies electric and manual physiotherapy therapy beds, foldable exercise beds, patient examination beds, chiropractic beds and clinic furniture such as device trolleys and bedside cabinets to clinics and hospitals across Bangladesh.",
+      "Every clinic setup starts with the right treatment surface. PhysioCare BD supplies electric and manual physiotherapy therapy beds, foldable exercise beds, patient examination beds, chiropractic beds, traction beds and clinic furniture such as device trolleys and bedside cabinets to clinics and hospitals across Bangladesh.",
       "Manual exercise beds start at BDT 8,500 and electric multi-section therapy beds reach BDT 155,000, with examination and patient beds between BDT 11,000 and BDT 14,000. Clinics furnishing a full room can call for a special business price on combined orders."
     ],
     "productIds": [
@@ -156,7 +155,8 @@ export const categories = [
       117,
       118,
       140,
-      141
+      141,
+      98
     ]
   },
   {
