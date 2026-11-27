@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import ProductCard from '../components/ProductCard';
 import { faqs } from '../data/faq';
+import { categories } from '../data/categories';
 
 // Import featured product images
 import shockwaveImage from '../assets/Products/Shockwave Therapy Machine.jpg';
@@ -170,6 +171,24 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Browse by Category Section */}
+      <section className="section">
+        <div className="container">
+          <div className="section-header text-center">
+            <h2 className="section-title">Browse by Equipment Type</h2>
+            <p className="section-subtitle">Find physiotherapy machines and equipment by category, with prices.</p>
+          </div>
+          <div className="category-grid">
+            {categories.map((category) => (
+              <Link key={category.slug} to={`/products/${category.slug}`} className="category-card">
+                <h3>{category.name}</h3>
+                <p>{category.productIds.length} products</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="section bg-light">
         <div className="container">
@@ -273,6 +292,25 @@ const Home = () => {
           font-size: 1.25rem;
         }
         
+        .category-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+          gap: 1.25rem;
+        }
+        .category-card {
+          display: block;
+          padding: 1.5rem;
+          border: 1px solid #e2e8f0;
+          border-radius: var(--radius);
+          text-decoration: none;
+          background: var(--white);
+        }
+        .category-card h3 {
+          color: var(--text-dark);
+          font-size: 1.05rem;
+          margin-bottom: 0.35rem;
+        }
+        .category-card p { color: var(--text-light); font-size: 0.9rem; }
         .featured-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

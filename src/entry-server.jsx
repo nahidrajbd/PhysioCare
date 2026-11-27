@@ -2,10 +2,12 @@ import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import { AppContent } from './App.jsx';
 import { products } from './pages/Products.jsx';
-import { faqs } from './data/faq.js';
+import { faqs, productFaqs } from './data/faq.js';
+import { categories } from './data/categories.js';
 
-export { faqs };
+export { faqs, productFaqs, categories };
 export const productList = products.map((product) => ({
+  id: product.id,
   name: product.name,
   description: product.description,
   image: product.image,

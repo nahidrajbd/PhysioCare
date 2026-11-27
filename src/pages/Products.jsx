@@ -1,4 +1,7 @@
 import ProductCard from '../components/ProductCard';
+import { Link } from 'react-router-dom';
+import { categories } from '../data/categories';
+import { productFaqs } from '../data/faq';
 
 // Import product images
 import img4ChannelTens from '../assets/Products/4-channel TENS (Transcutaneous Electrical Nerve Stimulation).jpg';
@@ -1191,6 +1194,17 @@ const Products = () => {
                             <a href="/disclaimer">disclaimer</a> before ordering.
                         </p>
                     </div>
+                    <div className="category-browse">
+                        <h2>Browse by Equipment Type</h2>
+                        <ul>
+                            {categories.map((category) => (
+                                <li key={category.slug}>
+                                    <Link to={`/products/${category.slug}`}>{category.name}</Link>
+                                    <span> ({category.productIds.length} products)</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                     <div className="products-grid">
                         {products.map(product => (
                             <ProductCard key={product.id} product={product} />
@@ -1204,6 +1218,16 @@ const Products = () => {
                     <div className="catalog-note">
                         <p>Don't see what you're looking for?</p>
                         <p className="sub-note">We have a vast inventory. Contact us for specific requirements.</p>
+                    </div>
+
+                    <div className="products-faq">
+                        <h2>Physiotherapy Equipment Prices and Buying Questions</h2>
+                        {productFaqs.map((faq, index) => (
+                            <div key={index} className="faq-item">
+                                <h3>{faq.question}</h3>
+                                <p>{faq.answer}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -1238,6 +1262,37 @@ const Products = () => {
           gap: 2rem;
           margin-bottom: 4rem;
         }
+        .category-browse {
+          max-width: 820px;
+          margin: 0 auto 3rem;
+        }
+        .category-browse h2 {
+          color: var(--text-dark);
+          margin-bottom: 1rem;
+          text-align: center;
+        }
+        .category-browse ul {
+          list-style: none;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.75rem 1.5rem;
+          justify-content: center;
+          padding: 0;
+        }
+        .category-browse a { color: var(--primary-dark); font-weight: 600; }
+        .category-browse span { color: var(--text-light); }
+        .products-faq {
+          max-width: 820px;
+          margin: 4rem auto 0;
+        }
+        .products-faq h2 {
+          color: var(--text-dark);
+          margin-bottom: 1.5rem;
+          text-align: center;
+        }
+        .products-faq .faq-item { margin-bottom: 1.75rem; }
+        .products-faq h3 { color: var(--text-dark); margin-bottom: 0.5rem; }
+        .products-faq p { color: var(--text-light); line-height: 1.7; }
         .catalog-note {
           text-align: center;
           background: var(--primary-light);
