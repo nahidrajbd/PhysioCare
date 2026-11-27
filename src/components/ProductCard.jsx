@@ -61,7 +61,7 @@ const ProductCard = ({ product, hideAction }) => {
           transform: scale(1.05);
         }
         .placeholder-image {
-          color: #94a3b8;
+          color: #5c6c7f;
           font-weight: 500;
         }
         .card-body {
@@ -91,7 +91,7 @@ const ProductCard = ({ product, hideAction }) => {
           display: inline-flex;
           align-items: center;
           gap: 0.5rem;
-          color: var(--primary);
+          color: var(--primary-text);
           font-weight: 600;
           font-size: 0.95rem;
           transition: gap 0.3s;

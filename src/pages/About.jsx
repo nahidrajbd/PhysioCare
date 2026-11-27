@@ -190,7 +190,7 @@ const About = () => {
                     margin-bottom: 2rem;
                 }
                 .ceo-signature h3 {
-                    color: var(--primary);
+                    color: var(--primary-text);
                     font-size: 1.25rem;
                 }
                 .ceo-signature p {
@@ -234,7 +234,7 @@ const About = () => {
                     align-items: center;
                     justify-content: center;
                     font-size: 2rem;
-                    color: #94a3b8;
+                    color: #64748b;
                     font-weight: 700;
                 }
                 .team-info {
@@ -246,7 +246,7 @@ const About = () => {
                     margin-bottom: 0.25rem;
                 }
                 .team-info p {
-                    color: var(--primary);
+                    color: var(--primary-text);
                     font-size: 0.9rem;
                     font-weight: 500;
                 }

@@ -137,7 +137,7 @@ const Contact = () => {
           align-items: start;
         }
         .contact-info h2 {
-           color: var(--primary);
+           color: var(--primary-text);
            margin-bottom: 1rem;
            font-size: 2rem;
         }

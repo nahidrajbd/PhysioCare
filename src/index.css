@@ -3,6 +3,8 @@
 :root {
   --primary: #60b3e5;
   --primary-dark: #4da3d4;
+  --primary-text: #1d6fa5;
+  --primary-text-dark: #185d8c;
   --primary-light: #e0f6ff;
   --secondary: #264652;
   --accent: #b3d864;
@@ -66,19 +68,19 @@ button {
 }
 
 .btn-primary {
-  background-color: var(--primary);
+  background-color: var(--primary-text);
   color: var(--white);
 }
 
 .btn-primary:hover {
-  background-color: var(--primary-dark);
+  background-color: var(--primary-text-dark);
   transform: translateY(-1px);
   box-shadow: var(--shadow);
 }
 
 .btn-outline {
-  border: 2px solid var(--primary);
-  color: var(--primary);
+  border: 2px solid var(--primary-text);
+  color: var(--primary-text);
 }
 
 .btn-outline:hover {

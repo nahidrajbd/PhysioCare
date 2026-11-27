@@ -80,7 +80,7 @@ const PrivacyPolicy = () => {
             line-height: 1.6;
         }
         a {
-            color: var(--primary);
+            color: var(--primary-text);
             text-decoration: none;
         }
         a:hover {

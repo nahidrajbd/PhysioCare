@@ -103,7 +103,7 @@ const Sitemap = () => {
             display: block;
         }
         .sitemap-list a:hover {
-            color: var(--primary);
+            color: var(--primary-text);
             padding-left: 0.5rem;
         }
 

@@ -236,7 +236,7 @@ const Home = () => {
           color: var(--text-dark);
         }
         .text-highlight {
-          color: var(--primary);
+          color: var(--primary-text);
         }
         .hero-subtitle {
           font-size: 1.2rem;
@@ -279,7 +279,7 @@ const Home = () => {
         .feature-icon {
           width: 64px;
           height: 64px;
-          background: var(--primary);
+          background: var(--primary-text);
           color: var(--white);
           border-radius: 50%;
           display: flex;
@@ -343,7 +343,7 @@ const Home = () => {
             gap: 1rem;
         }
         .cat-icon {
-            color: var(--primary);
+            color: var(--primary-text);
             transition: transform 0.3s ease;
         }
         .category-card:hover {
@@ -352,7 +352,7 @@ const Home = () => {
           box-shadow: var(--shadow-md);
         }
         .category-card:hover .cat-arrow {
-            color: var(--primary);
+            color: var(--primary-text);
             transform: translateX(5px);
         }
         .cat-arrow {
@@ -362,7 +362,7 @@ const Home = () => {
         .mt-8 { margin-top: 3rem; }
         
         .cta-section {
-          background-color: var(--primary);
+          background-color: var(--primary-text);
           color: var(--white);
           padding: 5rem 0;
           text-align: center;
@@ -378,7 +378,7 @@ const Home = () => {
         }
         .btn-white {
           background-color: var(--white);
-          color: var(--primary);
+          color: var(--primary-text);
           padding: 0.75rem 2rem;
           border-radius: var(--radius);
           font-weight: 600;

@@ -40,7 +40,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <button className="mobile-toggle" onClick={() => setIsOpen(!isOpen)}>
+        <button className="mobile-toggle" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle navigation menu" aria-expanded={isOpen}>
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -89,7 +89,7 @@ const Navbar = () => {
           color: var(--text-dark);
         }
         .text-primary {
-          color: var(--primary);
+          color: var(--primary-text);
         }
         .nav-links {
           display: flex;
@@ -102,7 +102,7 @@ const Navbar = () => {
           transition: color 0.3s;
         }
         .nav-link:hover, .nav-link.active {
-          color: var(--primary);
+          color: var(--primary-text);
         }
         .mobile-toggle {
           display: none;
@@ -179,11 +179,11 @@ const Footer = () => {
           </ul>
           <a className="google-review-link" href="https://g.page/r/CVIruh2GLRzKECE/review" target="_blank" rel="noopener noreferrer"><Star size={16} /> Review us on Google</a>
           <div className="social-links">
-            <a href="https://www.facebook.com/physiocarebdplus/" target="_blank" rel="noopener noreferrer"><Facebook size={20} /></a>
-            <a href="https://www.instagram.com/physiocarebdplus/" target="_blank" rel="noopener noreferrer"><Instagram size={20} /></a>
-            <a href="https://www.youtube.com/@PhysioCareBDPlus" target="_blank" rel="noopener noreferrer"><Youtube size={20} /></a>
-            <a href="https://x.com/physiocarebd" target="_blank" rel="noopener noreferrer"><Twitter size={20} /></a>
-            <a href="https://www.tiktok.com/@physiocarebdplus" target="_blank" rel="noopener noreferrer"><Tiktok size={20} /></a>
+            <a href="https://www.facebook.com/physiocarebdplus/" target="_blank" rel="noopener noreferrer" aria-label="PhysioCare BD on Facebook"><Facebook size={20} /></a>
+            <a href="https://www.instagram.com/physiocarebdplus/" target="_blank" rel="noopener noreferrer" aria-label="PhysioCare BD on Instagram"><Instagram size={20} /></a>
+            <a href="https://www.youtube.com/@PhysioCareBDPlus" target="_blank" rel="noopener noreferrer" aria-label="PhysioCare BD on YouTube"><Youtube size={20} /></a>
+            <a href="https://x.com/physiocarebd" target="_blank" rel="noopener noreferrer" aria-label="PhysioCare BD on X"><Twitter size={20} /></a>
+            <a href="https://www.tiktok.com/@physiocarebdplus" target="_blank" rel="noopener noreferrer" aria-label="PhysioCare BD on TikTok"><Tiktok size={20} /></a>
           </div>
         </div>
       </div>
