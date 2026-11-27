@@ -5,9 +5,6 @@ import ceoImage from '../assets/Kamruzzaman-Sumon.png';
 const About = () => {
   const teamMembers = [
     { name: "Md. Kamruzzaman Sumon", role: "CEO & Founder", image: null },
-    { name: "Sarah Ahmed", role: "Head of Operations", image: null },
-    { name: "Rahim Uddin", role: "Senior Technician", image: null },
-    { name: "Fatima Begum", role: "Sales Manager", image: null },
   ];
 
   return (
