@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Mail, MapPin, Facebook, Instagram, Youtube, Twitter } from 'lucide-react';
+import { Menu, X, Phone, Mail, MapPin, Facebook, Instagram, Youtube, Twitter, Star } from 'lucide-react';
 import Tiktok from './icons/Tiktok';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -177,6 +177,7 @@ const Footer = () => {
             <li><Phone size={16} /> +8801818758882</li>
             <li><MapPin size={16} /> BMA Bhaban, 15/2 Topkhana Road, Dhaka-1000, Bangladesh</li>
           </ul>
+          <a className="google-review-link" href="https://g.page/r/CVIruh2GLRzKECE/review" target="_blank" rel="noopener noreferrer"><Star size={16} /> Review us on Google</a>
           <div className="social-links">
             <a href="https://www.facebook.com/physiocarebdplus/" target="_blank" rel="noopener noreferrer"><Facebook size={20} /></a>
             <a href="https://www.instagram.com/physiocarebdplus/" target="_blank" rel="noopener noreferrer"><Instagram size={20} /></a>
@@ -196,6 +197,16 @@ const Footer = () => {
           color: #cbd5e1;
           padding: 4rem 0 1rem;
         }
+        .google-review-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          margin-bottom: 1rem;
+          color: #fbbf24;
+          font-weight: 600;
+          text-decoration: none;
+        }
+        .google-review-link:hover { text-decoration: underline; }
         .footer-logo {
           color: var(--white);
           font-size: 1.5rem;

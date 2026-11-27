@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Contact = () => {
@@ -67,6 +67,14 @@ const Contact = () => {
               <h3>Working Hours</h3>
               <p>Saturday - Thursday: 9:00 AM - 8:00 PM</p>
               <p>Friday: Closed</p>
+            </div>
+
+            <div className="review-cta">
+              <h3>Happy with our service?</h3>
+              <p>Your Google review helps other clinics and patients find us.</p>
+              <a className="btn btn-primary" href="https://g.page/r/CVIruh2GLRzKECE/review" target="_blank" rel="noopener noreferrer">
+                <Star size={18} style={{ marginRight: '8px' }} /> Leave a Google Review
+              </a>
             </div>
           </motion.div>
 
@@ -161,6 +169,15 @@ const Contact = () => {
         }
         .info-item p {
           color: var(--secondary);
+        }
+        .review-cta {
+          margin-top: 2rem;
+        }
+        .review-cta .btn {
+          display: inline-flex;
+          align-items: center;
+          margin-top: 0.75rem;
+          text-decoration: none;
         }
         .working-hours {
           margin-top: 3rem;
