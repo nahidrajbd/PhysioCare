@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { categories } from '../data/categories';
 
 const Sitemap = () => {
     const sections = [
@@ -11,6 +12,13 @@ const Sitemap = () => {
                 { name: "Why Choose Us", path: "/why-choose-us" },
                 { name: "Contact Us", path: "/contact" },
             ]
+        },
+        {
+            title: "Product Categories",
+            links: categories.map((category) => ({
+                name: category.name,
+                path: `/products/${category.slug}`,
+            }))
         },
         {
             title: "Customer Service & Legal",

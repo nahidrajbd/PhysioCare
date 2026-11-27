@@ -28,7 +28,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const { render, faqs, productList } = await import("../dist-server/entry-server.js");
+const { render, faqs, productFaqs, categories, productList } = await import("../dist-server/entry-server.js");
 
 const rootDir = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const distDir = path.join(rootDir, "dist");
@@ -176,6 +176,23 @@ function applyRouteMeta(shell, route) {
   return html;
 }
 
+// Category pages (/products/<slug>) generated from src/data/categories.js.
+// Each gets its own title, meta description, 3-level breadcrumb and an
+// ItemList of only its own products, so each equipment line can rank for
+// its own "price in Bangladesh" searches.
+const CATEGORY_ROUTES = categories.map((category) => ({
+  path: `/products/${category.slug}`,
+  crumb: category.name,
+  parentCrumb: "Products",
+  parentPath: "/products",
+  changefreq: "weekly",
+  priority: "0.8",
+  title: category.title,
+  description: category.description,
+  category: category.slug,
+}));
+const ALL_ROUTES = [...ROUTES, ...CATEGORY_ROUTES];
+
 // --- 1. Per-route HTML -------------------------------------------------------
 const indexPath = path.join(distDir, "index.html");
 const shell = fs.readFileSync(indexPath, "utf8");
@@ -188,7 +205,7 @@ if (!shell.includes('"@type": "Organization"') || !shell.includes('"@type": "Sto
 }
 console.log("prerender: homepage meta verified");
 
-for (const route of ROUTES) {
+for (const route of ALL_ROUTES) {
   const withMeta = route.path === "/" ? shell : applyRouteMeta(shell, route);
   const content = render(route.path);
   if (!content || content.length < 200) {
@@ -197,6 +214,8 @@ for (const route of ROUTES) {
   let html = withMeta.replace('<div id="root"></div>', `<div id="root">${content}</div>`);
   const extras = [];
   const pageUrl = route.path === "/" ? `${SITE}/` : `${SITE}${route.path}`;
+  const categoryNameById = {};
+  for (const c of categories) for (const id of c.productIds) if (!(id in categoryNameById)) categoryNameById[id] = c.name;
   const webPage = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -212,17 +231,28 @@ for (const route of ROUTES) {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "@id": `${pageUrl}#breadcrumb`,
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
-        { "@type": "ListItem", position: 2, name: route.crumb, item: pageUrl },
-      ],
+      itemListElement: route.parentCrumb
+        ? [
+            { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+            { "@type": "ListItem", position: 2, name: route.parentCrumb, item: `${SITE}${route.parentPath}` },
+            { "@type": "ListItem", position: 3, name: route.crumb, item: pageUrl },
+          ]
+        : [
+            { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+            { "@type": "ListItem", position: 2, name: route.crumb, item: pageUrl },
+          ],
     });
   }
+  const mainEntities = [];
+  if (route.path === "/" || route.path === "/products") mainEntities.push({ "@id": `${pageUrl}#faq` });
+  if (route.path === "/products" || route.category) mainEntities.push({ "@id": `${pageUrl}#itemlist` });
+  if (mainEntities.length) webPage.mainEntity = mainEntities;
   extras.push(webPage);
   if (route.path === "/") {
     extras.push({
       "@context": "https://schema.org",
       "@type": "FAQPage",
+      "@id": `${pageUrl}#faq`,
       mainEntity: faqs.map((faq) => ({
         "@type": "Question",
         name: faq.question,
@@ -233,7 +263,18 @@ for (const route of ROUTES) {
   if (route.path === "/products") {
     extras.push({
       "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": `${pageUrl}#faq`,
+      mainEntity: productFaqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    });
+    extras.push({
+      "@context": "https://schema.org",
       "@type": "ItemList",
+      "@id": `${pageUrl}#itemlist`,
       name: "Physiotherapy Machines and Equipment",
       numberOfItems: productList.length,
       itemListElement: productList.map((product, index) => ({
@@ -245,12 +286,50 @@ for (const route of ROUTES) {
           description: product.description,
           image: product.image ? `${SITE}${product.image}` : undefined,
           brand: { "@type": "Brand", name: "PhysioCare BD Plus" },
+          category: categoryNameById[product.id],
           ...(product.price
             ? {
                 offers: {
                   "@type": "Offer",
                   priceCurrency: "BDT",
                   price: product.price,
+                  itemCondition: "https://schema.org/NewCondition",
+                  seller: { "@id": `${SITE}/#store` },
+                  url: `${SITE}/products`,
+                },
+              }
+            : {}),
+        },
+      })),
+    });
+  }
+  if (route.category) {
+    const category = categories.find((c) => c.slug === route.category);
+    const items = productList.filter((product) => category.productIds.includes(product.id));
+    extras.push({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "@id": `${pageUrl}#itemlist`,
+      name: category.name,
+      numberOfItems: items.length,
+      itemListElement: items.map((product, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "Product",
+          name: product.name,
+          description: product.description,
+          image: product.image ? `${SITE}${product.image}` : undefined,
+          brand: { "@type": "Brand", name: "PhysioCare BD Plus" },
+          category: categoryNameById[product.id],
+          ...(product.price
+            ? {
+                offers: {
+                  "@type": "Offer",
+                  priceCurrency: "BDT",
+                  price: product.price,
+                  itemCondition: "https://schema.org/NewCondition",
+                  seller: { "@id": `${SITE}/#store` },
                   url: `${SITE}/products`,
                 },
               }
@@ -270,6 +349,7 @@ for (const route of ROUTES) {
   }
   const outFile =
     route.path === "/" ? indexPath : path.join(distDir, `${route.path.slice(1)}.html`);
+  fs.mkdirSync(path.dirname(outFile), { recursive: true });
   fs.writeFileSync(outFile, html);
   console.log(`prerender: wrote ${route.path} (${html.length} bytes, content rendered)`);
 }
@@ -282,7 +362,7 @@ Sitemap: ${SITE}/sitemap.xml
 `;
 fs.writeFileSync(path.join(distDir, "robots.txt"), robots);
 
-const urls = ROUTES.map((route) => {
+const urls = ALL_ROUTES.map((route) => {
   const loc = route.path === "/" ? `${SITE}/` : `${SITE}${route.path}`;
   return `  <url>
     <loc>${loc}</loc>
@@ -314,7 +394,10 @@ if (!llms.includes("## Frequently asked questions")) {
         : `- ${product.name} - Price on request`
     )
     .join("\n");
-  llms = `${llms.trim()}\n\n## Frequently asked questions\n\n${faqSection}\n\n## Products (full list, details on the Products page)\n\n${productSection}\n`;
+  const categorySection = categories
+    .map((category) => `- ${category.name}: ${SITE}/products/${category.slug}`)
+    .join("\n");
+  llms = `${llms.trim()}\n\n## Product categories\n\n${categorySection}\n\n## Frequently asked questions\n\n${faqSection}\n\n## Products (full list, details on the Products page)\n\n${productSection}\n`;
   fs.writeFileSync(llmsPath, llms);
   console.log("prerender: enriched llms.txt with FAQ answers and product list");
 }
